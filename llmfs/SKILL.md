@@ -31,20 +31,6 @@ Use this skill to bootstrap a target directory by installing:
 
 This skill does not create `README.md`, `INDEX.md`, `LOG.md`, `inbox/`, or any other filesystem structure. Those are created later by the target directory's `SYSTEM.md` after handoff.
 
-## Package Layout
-
-The installable skill directory is this `llmfs/` directory.
-
-```text
-llmfs/
-├── SKILL.md
-└── templates/
-    ├── SYSTEM.md
-    └── AGENTS.md
-```
-
-During protocol development, `templates/SYSTEM.md` may not exist yet. Edit the candidate protocol in the project root at `protocol/SYSTEM.md`. Promote it to `llmfs/templates/SYSTEM.md` only when stable.
-
 ## Preflight
 
 Before writing to a target directory:
