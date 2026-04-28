@@ -20,6 +20,29 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 6. The same finalized content must also be copied to `../llmfs/templates/SYSTEM.md` for installation.
 7. `protocol/` must not contain `SYSTEM.md`.
 8. `SYSTEM.next.md` is a draft and must not be used for normal initialization unless explicitly requested.
+9. `SYSTEM` files must not add metadata header blocks; version and release date belong only in the first Markdown heading.
+
+## Title convention
+
+Released protocol files and the current install template use this first-heading format:
+
+```markdown
+# System Protocol vX YYYY-MM-DD
+```
+
+Example:
+
+```markdown
+# System Protocol v0 2026-04-28
+```
+
+`SYSTEM.next.md` uses this draft heading:
+
+```markdown
+# System Protocol next
+```
+
+Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or `Canonical filename:` to any `SYSTEM` file.
 
 ## Released versions
 
@@ -35,8 +58,10 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 1. Edit [SYSTEM.next.md](SYSTEM.next.md).
 2. Review and finalize the draft.
-3. Choose the next version number, such as `v1`.
-4. Copy the finalized draft to `SYSTEM.vX.md`.
-5. Copy the same finalized content to [../llmfs/templates/SYSTEM.md](../llmfs/templates/SYSTEM.md).
-6. Update this index.
-7. After release, never modify the new `SYSTEM.vX.md`.
+3. Choose the next version number, such as `v1`, and the release date.
+4. Set the finalized release heading to `# System Protocol vX YYYY-MM-DD`.
+5. Copy the finalized content to `SYSTEM.vX.md`.
+6. Copy the same finalized content to [../llmfs/templates/SYSTEM.md](../llmfs/templates/SYSTEM.md).
+7. Reset or continue [SYSTEM.next.md](SYSTEM.next.md) as the next mutable draft with the heading `# System Protocol next`.
+8. Update this index.
+9. After release, never modify the new `SYSTEM.vX.md`.
