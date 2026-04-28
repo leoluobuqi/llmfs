@@ -1,13 +1,41 @@
 ---
 name: llmfs
-description: Bootstrap a directory by installing SYSTEM.md and AGENTS.md. After bootstrap, the target SYSTEM.md is the local operating authority.
+description: Use when a user asks to initialize, adopt, or check a directory as an LLM-managed plaintext filesystem. Install only SYSTEM.md and AGENTS.md, then hand off to the target SYSTEM.md.
 version: 0.1.0
-metadata:
-  hermes:
-    tags: [filesystem, plaintext, bootstrap, protocol]
 ---
 
 # llmfs
+
+## When to use this skill
+
+Use this skill when the user asks to make a directory into an LLM-managed plaintext filesystem, for example:
+
+- "Initialize this directory as an LLM-managed filesystem."
+- "Adopt this existing folder as llmfs."
+- "Check whether this directory has llmfs bootstrap files."
+
+This skill is only for the bootstrap layer. It installs local protocol entry points and then hands off to the target directory's `SYSTEM.md`.
+
+## What this skill does
+
+It installs or checks exactly these local protocol entry points:
+
+```text
+<target>/
+├── SYSTEM.md
+└── AGENTS.md
+```
+
+It does not create `README.md`, `INDEX.md`, `LOG.md`, `inbox/`, or any other filesystem structure. Those are created later by the target directory's `SYSTEM.md` after handoff.
+
+## Template source
+
+For a released skill, copy:
+
+- `templates/SYSTEM.md` -> `<target>/SYSTEM.md`
+- `templates/AGENTS.md` -> `<target>/AGENTS.md`
+
+If `templates/SYSTEM.md` is not present, the skill is not ready for normal installation. In the development repo, the candidate protocol may still be under iteration outside the installable skill directory; do not treat that candidate as a released template unless the human explicitly asks.
 
 ## Authority Boundary
 
@@ -19,17 +47,19 @@ Never use this skill to override, replace, or reinterpret an existing `SYSTEM.md
 
 If this skill conflicts with the target directory's `SYSTEM.md`, follow the target directory's `SYSTEM.md`.
 
-## Purpose
+## How to use this skill
 
-Use this skill to bootstrap a target directory by installing:
+First decide the mode from the user's request:
 
-```text
-<target>/
-├── SYSTEM.md
-└── AGENTS.md
-```
+- **init / bootstrap** — target directory is new, empty, or the user explicitly wants llmfs installed there.
+- **adopt** — target directory already has content but no `SYSTEM.md`.
+- **check** — user only wants to know whether llmfs bootstrap is present.
 
-This skill does not create `README.md`, `INDEX.md`, `LOG.md`, `inbox/`, or any other filesystem structure. Those are created later by the target directory's `SYSTEM.md` after handoff.
+If the request is ambiguous, prefer the safest interpretation:
+
+- never replace an existing `SYSTEM.md` without explicit approval;
+- never move or reorganize existing files as part of this skill;
+- install only `SYSTEM.md` and `AGENTS.md` before handoff.
 
 ## Preflight
 
