@@ -1,6 +1,6 @@
 ---
 name: llmfs
-description: Use when a user asks to initialize, adopt, or check a directory as an LLM-managed plaintext filesystem. Install only SYSTEM.md and AGENTS.md, then hand off to the target SYSTEM.md.
+description: Use when a user asks to initialize, adopt, or check a directory as an LLM-managed self-describing filesystem. Install only SYSTEM.md and AGENTS.md, then hand off to the target SYSTEM.md.
 version: 0.1.0
 ---
 
@@ -8,7 +8,7 @@ version: 0.1.0
 
 ## When to use this skill
 
-Use this skill when the user asks to make a directory into an LLM-managed plaintext filesystem, for example:
+Use this skill when the user asks to make a directory into an LLM-managed self-describing filesystem, for example:
 
 - "Initialize this directory as an LLM-managed filesystem."
 - "Adopt this existing folder as llmfs."
@@ -27,15 +27,6 @@ It installs or checks exactly these local protocol entry points:
 ```
 
 It does not create `README.md`, `INDEX.md`, `LOG.md`, `inbox/`, or any other filesystem structure. Those are created later by the target directory's `SYSTEM.md` after handoff.
-
-## Template source
-
-For a released skill, copy:
-
-- `templates/SYSTEM.md` -> `<target>/SYSTEM.md`
-- `templates/AGENTS.md` -> `<target>/AGENTS.md`
-
-If `templates/SYSTEM.md` is not present, the skill is not ready for normal installation. In the development repo, the candidate protocol may still be under iteration outside the installable skill directory; do not treat that candidate as a released template unless the human explicitly asks.
 
 ## Authority Boundary
 
