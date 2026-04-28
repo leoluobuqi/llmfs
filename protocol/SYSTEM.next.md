@@ -1,4 +1,4 @@
-# System Protocol
+# System Protocol next
 
 This directory is an LLM-managed plaintext filesystem.
 
