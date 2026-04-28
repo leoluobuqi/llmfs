@@ -20,6 +20,8 @@ This skill is only for the bootstrap layer. It installs local protocol entry poi
 
 It installs or checks exactly these local protocol entry points:
 
+A self-describing filesystem may contain arbitrary file types, but its durable protocol, organization, routing, and retrieval aids must be visible ordinary files such as `SYSTEM.md`, `README.md`, `INDEX.md`, and `LOG.md`, not hidden databases, vector stores, embedding caches, or RAG indexes.
+
 ```text
 <target>/
 ├── SYSTEM.md
