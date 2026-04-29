@@ -1,4 +1,4 @@
-# System Protocol v1 2026-04-29
+# System Protocol v2 2026-04-29
 
 This directory is an LLM-managed self-describing filesystem. Humans should be able to drop files into `inbox/` or ask in natural language; the LLM maintains organization, naming, indexing, logging, and visible retrieval aids.
 
@@ -253,7 +253,7 @@ Path rules:
 
 ## 11. Language Policy
 
-Use the user's language as the default language for generated human-facing content, including `README.md`, `INDEX.md`, sidecars, topic maps, decision notes, maintenance reports, user-facing explanations, and log descriptions.
+Use the user's language as the default language for generated human-facing content, including `README.md`, `INDEX.md`, sidecars, topic maps, decision notes, maintenance reports, user-facing explanations, and `LOG.md` subjects and bodies. In `LOG.md`, the heading action may remain a stable English slug for parseability.
 
 Preserve the original language for source materials, quoted text, titles, proper nouns, and filenames when appropriate. Technical terms may be kept in English or written bilingually when useful for search and clarity.
 
