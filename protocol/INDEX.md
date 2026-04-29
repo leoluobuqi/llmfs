@@ -6,7 +6,7 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [SYSTEM.v0.md](SYSTEM.v0.md)
+- Latest released: [SYSTEM.v1.md](SYSTEM.v1.md)
 - Current install template: [../llmfs/templates/SYSTEM.md](../llmfs/templates/SYSTEM.md)
 - Draft for next release: [SYSTEM.next.md](SYSTEM.next.md)
 
@@ -49,6 +49,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | Version | File | Release date | Notes |
 | --- | --- | --- | --- |
 | v0 | [SYSTEM.v0.md](SYSTEM.v0.md) | 2026-04-28 | Initial released protocol snapshot. |
+| v1 | [SYSTEM.v1.md](SYSTEM.v1.md) | 2026-04-29 | Streamlined and hardened protocol with bootstrap completion, existing-content adoption, trusted nested authority boundaries, and stronger prompt-injection safeguards. |
 
 ## Draft
 
