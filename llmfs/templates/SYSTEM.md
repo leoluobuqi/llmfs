@@ -1,4 +1,4 @@
-# System Protocol v2 2026-04-29
+# System Protocol v3 2026-05-03
 
 This directory is an LLM-managed self-describing filesystem. Humans should be able to drop files into `inbox/` or ask in natural language; the LLM maintains organization, naming, indexing, logging, and visible retrieval aids.
 
@@ -149,7 +149,7 @@ Rules:
 
 ## 7. LOG Policy
 
-`LOG.md` is an append-only chronological operational log. Every real log entry must start with this parseable heading format:
+`LOG.md` is an append-only chronological operational log. New entries must always be appended to the physical end of `LOG.md`. Every real log entry must start with this parseable heading format:
 
 ```markdown
 ## [YYYY-MM-DD] action | subject
@@ -237,17 +237,19 @@ Avoid absolute local paths in managed documents unless strictly necessary. Prefe
 When linking Markdown files, prefer wikilinks:
 
 ```markdown
-[[path/to/file|Readable Label]]
+[[path/to/file]]
 [[file-name]]
+[[path/to/file|Human-readable title]]
 ```
 
-Path rules:
+Path and alias rules:
 
 1. Same-directory links should usually use short filenames when unambiguous.
 2. Local `INDEX.md` files should usually use paths relative to their own area when linking to descendants.
 3. Root `INDEX.md` may use root-relative paths for top-level routing.
 4. Cross-area links should include enough path context to avoid ambiguity.
-5. `LOG.md` should use ordinary exact paths for audit and rollback precision.
+5. Do not use redundant aliases. Prefer `[[file-name]]` or `[[path/to/file]]` over `[[file-name|file-name.md]]` or `[[path/to/file|path/to/file.md]]`; use `[[target|label]]` only when the label adds a clearer title or disambiguation.
+6. `LOG.md` should use ordinary exact paths for audit and rollback precision.
 
 ---
 
