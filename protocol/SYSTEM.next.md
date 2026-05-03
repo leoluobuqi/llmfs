@@ -149,7 +149,7 @@ Rules:
 
 ## 7. LOG Policy
 
-`LOG.md` is an append-only chronological operational log. Every real log entry must start with this parseable heading format:
+`LOG.md` is an append-only chronological operational log. New entries must always be appended to the physical end of `LOG.md`. Every real log entry must start with this parseable heading format:
 
 ```markdown
 ## [YYYY-MM-DD] action | subject
