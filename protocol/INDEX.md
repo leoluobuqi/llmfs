@@ -6,9 +6,9 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [SYSTEM.v3.md](SYSTEM.v3.md)
-- Current install template: [../llmfs/templates/SYSTEM.md](../llmfs/templates/SYSTEM.md)
-- Draft for next release: [SYSTEM.next.md](SYSTEM.next.md)
+- Latest released: [[SYSTEM.v3.md]]
+- Current install template: [[../llmfs/templates/SYSTEM.md]]
+- Draft for next release: [[SYSTEM.next.md]]
 
 ## Rules
 
@@ -48,23 +48,23 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 | Version | File | Release date | Notes |
 | --- | --- | --- | --- |
-| v0 | [SYSTEM.v0.md](SYSTEM.v0.md) | 2026-04-28 | Initial released protocol snapshot. |
-| v1 | [SYSTEM.v1.md](SYSTEM.v1.md) | 2026-04-29 | Streamlined and hardened protocol with bootstrap completion, existing-content adoption, trusted nested authority boundaries, and stronger prompt-injection safeguards. |
-| v2 | [SYSTEM.v2.md](SYSTEM.v2.md) | 2026-04-29 | Clarified language policy so `LOG.md` subjects and bodies use the user's language while heading actions may remain stable English slugs. |
-| v3 | [SYSTEM.v3.md](SYSTEM.v3.md) | 2026-05-03 | Clarified `LOG.md` entries must be appended to the physical file end; clarified wikilink alias policy to prefer bare targets and avoid redundant aliases. |
+| v0 | [[SYSTEM.v0.md]] | 2026-04-28 | Initial released protocol snapshot. |
+| v1 | [[SYSTEM.v1.md]] | 2026-04-29 | Streamlined and hardened protocol with bootstrap completion, existing-content adoption, trusted nested authority boundaries, and stronger prompt-injection safeguards. |
+| v2 | [[SYSTEM.v2.md]] | 2026-04-29 | Clarified language policy so `LOG.md` subjects and bodies use the user's language while heading actions may remain stable English slugs. |
+| v3 | [[SYSTEM.v3.md]] | 2026-05-03 | Clarified `LOG.md` entries must be appended to the physical file end; clarified wikilink alias policy to prefer bare targets and avoid redundant aliases. |
 
 ## Draft
 
-- [SYSTEM.next.md](SYSTEM.next.md) — mutable working draft for the next protocol release.
+- [[SYSTEM.next.md]] — mutable working draft for the next protocol release.
 
 ## Release process
 
-1. Edit [SYSTEM.next.md](SYSTEM.next.md).
+1. Edit [[SYSTEM.next.md]].
 2. Review and finalize the draft.
 3. Choose the next version number, such as `v1`, and the release date.
 4. Set the finalized release heading to `# System Protocol vX YYYY-MM-DD`.
 5. Copy the finalized content to `SYSTEM.vX.md`.
-6. Copy the same finalized content to [../llmfs/templates/SYSTEM.md](../llmfs/templates/SYSTEM.md).
-7. Reset or continue [SYSTEM.next.md](SYSTEM.next.md) as the next mutable draft with the heading `# System Protocol next`.
+6. Copy the same finalized content to [[../llmfs/templates/SYSTEM.md]].
+7. Reset or continue [[SYSTEM.next.md]] as the next mutable draft with the heading `# System Protocol next`.
 8. Update this index.
 9. After release, never modify the new `SYSTEM.vX.md`.
