@@ -248,9 +248,8 @@ Path and alias rules:
 2. Local `INDEX.md` files should usually use paths relative to their own area when linking to descendants.
 3. Root `INDEX.md` may use root-relative paths for top-level routing.
 4. Cross-area links should include enough path context to avoid ambiguity.
-5. Do not use redundant aliases that only repeat the target, add a `.md` extension, or show the same path with an extension. Prefer `[[file-name]]` or `[[path/to/file]]` over `[[file-name|file-name.md]]` or `[[path/to/file|path/to/file.md]]`.
-6. Use `[[target|label]]` only when `label` adds a clearer human-readable title or disambiguation.
-7. `LOG.md` should use ordinary exact paths for audit and rollback precision.
+5. Do not use redundant aliases. Prefer `[[file-name]]` or `[[path/to/file]]` over `[[file-name|file-name.md]]` or `[[path/to/file|path/to/file.md]]`; use `[[target|label]]` only when the label adds a clearer title or disambiguation.
+6. `LOG.md` should use ordinary exact paths for audit and rollback precision.
 
 ---
 
