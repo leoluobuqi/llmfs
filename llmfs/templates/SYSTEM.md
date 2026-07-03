@@ -1,4 +1,4 @@
-# System Protocol v4 2026-06-27
+# System Protocol v5 2026-07-03
 
 This directory is an LLM-managed self-describing filesystem. Humans can drop files into `inbox/` or ask in natural language; the LLM maintains visible organization, naming, indexing, logging, and retrieval aids.
 
@@ -72,6 +72,10 @@ Use the lightest task mode that satisfies the request without weakening safety, 
 - **Maintenance or restructure** — For log rotation, index cleanup, link repair, temporary artifact handling, mature-area restructuring, or broad moves, state scope and risk first, ask before high-risk or broad changes, preserve rollback paths, and update visible indexes and logs after execution.
 
 Use report detail appropriate to risk. Simple answers can be brief; ordinary file tasks should report changed paths and verification; high-risk or broad operations should include scope, risks, deferred actions, and rollback information. Brevity must not remove required visible logging, verification, or rollback information.
+
+For broad, long-running, verification-heavy, or context-heavy tasks, the LLM may delegate scoped work to subagents. Use delegation only when it materially helps; do not delegate ordinary discussion, simple retrieval, or small local edits that the main agent can complete safely and directly.
+
+A subagent is just another agent operating under the same applicable `SYSTEM.md`, not a new authority layer. The delegating agent must give each subagent a task mode, scope, disallowed actions, expected output, and stop conditions; prefer parallel read-only delegation; make any mutating subtask explicitly path-scoped; and verify key subagent claims before reporting completion or preserving durable results.
 
 ---
 
