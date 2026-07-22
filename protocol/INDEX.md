@@ -59,6 +59,8 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 ## Draft
 
 - [[SYSTEM.next.md]] — mutable working draft for the next protocol release.
+- Current candidate delta: product-independent external skill packages may be installed as visible files and explicitly referenced by tasks or workflows, with source, entry, provenance, archive safety, authorization, compatibility, and filesystem-local experience boundaries; this draft is not yet released and is not the current install template.
+- Candidate review: no P0/P1 findings; P2 wording refinements were integrated, and the draft is ready to enter an independent freeze review.
 
 ## Release process
 
