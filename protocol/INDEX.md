@@ -6,7 +6,7 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [[SYSTEM.v6.md]]
+- Latest released: [[SYSTEM.v7.md]]
 - Current install template: [[../llmfs/templates/SYSTEM.md]]
 - Draft for next release: [[SYSTEM.next.md]]
 
@@ -55,12 +55,11 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | v4 | [[SYSTEM.v4.md]] | 2026-06-27 | Added task-mode selection, scoped retrieval discipline, LOG lifecycle, current-state / handoff triggers, maintenance/search-surface checks, temporary artifact lifecycle, and non-regression constraints while keeping package release rules out of ordinary managed filesystem runtime protocol. |
 | v5 | [[SYSTEM.v5.md]] | 2026-07-03 | Added minimal scoped subagent delegation guidance under task modes: use only when materially helpful, treat subagents as agents under the same applicable `SYSTEM.md`, prefer parallel read-only delegation, path-scope mutating subtasks, and verify key subagent claims before reporting or preserving durable results. |
 | v6 | [[SYSTEM.v6.md]] | 2026-07-22 | Added narrowly scoped proactive experience capture during Discussion when reusable guidance, long-term value, scope, and target are clear; Retrieval remains read-only, and the rule avoids separate retrospectives, filesystem-wide scans, unrelated maintenance, and duplicate reporting mechanisms. |
+| v7 | [[SYSTEM.v7.md]] | 2026-07-22 | Added product-independent external skill packages as visible ordinary-file dependencies with semantic placement, explicit task/runbook/workflow references, source and provenance checks, archive target safety, scoped method authorization, separate storage/binding/executability states, cross-Agent compatibility limits, and filesystem-local experience separation. |
 
 ## Draft
 
-- [[SYSTEM.next.md]] — mutable working draft for the next protocol release.
-- Current candidate delta: product-independent external skill packages may be installed as visible files and explicitly referenced by tasks or workflows, with source, entry, provenance, archive safety, authorization, compatibility, and filesystem-local experience boundaries; this draft is not yet released and is not the current install template.
-- Independent freeze review: `GO to v7 release workflow`; P0=0, P1=0, P2=2 non-blocking release-execution prerequisites. The audited `SYSTEM.next.md` remains frozen at SHA-256 `7070ffebb2f5d0c7161d4ab33cb53208ad5c80243c4df4e3fe76d81f65c1df8c`; this GO does not release or install it.
+- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently shares the v7 body and differs only in the draft title.
 
 ## Release process
 
