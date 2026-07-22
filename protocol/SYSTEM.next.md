@@ -164,6 +164,8 @@ Create or update AI-authored files only when the human explicitly asks, the file
 
 Do not create files for ordinary explanations, temporary discussion, intermediate reasoning, unstable speculative ideas, duplicate content, content better left in conversation, or artifacts that would create clutter.
 
+When a human correction, non-obvious failure recovery, consequential verification result, or stable decision may reveal reusable area- or filesystem-local guidance, proactively check whether that guidance is already represented in an appropriate visible file. If not, make the smallest useful update to an existing semantic file; when no suitable file exists and the long-term value is clear, create a durable artifact in the correct semantic location. Disclose any such incidental durable write in the task report. Ordinary success does not require a review or artifact.
+
 Place AI-authored files by semantic content, not by source. Do not create generic `generated/`, `ai-authored/`, or `chat-output/` directories by default.
 
 When creating or updating an AI-authored file, decide whether it is durable enough, choose a semantic target, reuse existing areas, avoid overwriting, use portable paths and wikilinks, update relevant `README.md`, `INDEX.md`, and `LOG.md` when responsibilities change, verify links and structure, and follow Git Policy when checkpointing is appropriate.
