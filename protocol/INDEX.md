@@ -60,7 +60,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 - [[SYSTEM.next.md]] — mutable working draft for the next protocol release.
 - Current candidate delta: product-independent external skill packages may be installed as visible files and explicitly referenced by tasks or workflows, with source, entry, provenance, archive safety, authorization, compatibility, and filesystem-local experience boundaries; this draft is not yet released and is not the current install template.
-- Candidate review: no P0/P1 findings; P2 wording refinements were integrated, and the draft is ready to enter an independent freeze review.
+- Independent freeze review: `GO to v7 release workflow`; P0=0, P1=0, P2=2 non-blocking release-execution prerequisites. The audited `SYSTEM.next.md` remains frozen at SHA-256 `7070ffebb2f5d0c7161d4ab33cb53208ad5c80243c4df4e3fe76d81f65c1df8c`; this GO does not release or install it.
 
 ## Release process
 
