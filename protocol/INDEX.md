@@ -6,7 +6,7 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [[SYSTEM.v5.md]]
+- Latest released: [[SYSTEM.v6.md]]
 - Current install template: [[../llmfs/templates/SYSTEM.md]]
 - Draft for next release: [[SYSTEM.next.md]]
 
@@ -54,6 +54,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | v3 | [[SYSTEM.v3.md]] | 2026-05-03 | Clarified `LOG.md` entries must be appended to the physical file end; clarified wikilink alias policy to prefer bare targets and avoid redundant aliases. |
 | v4 | [[SYSTEM.v4.md]] | 2026-06-27 | Added task-mode selection, scoped retrieval discipline, LOG lifecycle, current-state / handoff triggers, maintenance/search-surface checks, temporary artifact lifecycle, and non-regression constraints while keeping package release rules out of ordinary managed filesystem runtime protocol. |
 | v5 | [[SYSTEM.v5.md]] | 2026-07-03 | Added minimal scoped subagent delegation guidance under task modes: use only when materially helpful, treat subagents as agents under the same applicable `SYSTEM.md`, prefer parallel read-only delegation, path-scope mutating subtasks, and verify key subagent claims before reporting or preserving durable results. |
+| v6 | [[SYSTEM.v6.md]] | 2026-07-22 | Added narrowly scoped proactive experience capture during Discussion when reusable guidance, long-term value, scope, and target are clear; Retrieval remains read-only, and the rule avoids separate retrospectives, filesystem-wide scans, unrelated maintenance, and duplicate reporting mechanisms. |
 
 ## Draft
 

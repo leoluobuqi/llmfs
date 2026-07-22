@@ -1,4 +1,4 @@
-# System Protocol v5 2026-07-03
+# System Protocol v6 2026-07-22
 
 This directory is an LLM-managed self-describing filesystem. Humans can drop files into `inbox/` or ask in natural language; the LLM maintains visible organization, naming, indexing, logging, and retrieval aids.
 
@@ -66,7 +66,7 @@ The LLM should make routine organization decisions by default, while asking befo
 
 Use the lightest task mode that satisfies the request without weakening safety, visibility, or auditability:
 
-- **Discussion** — Answer directly. Do not create files, update indexes, append logs, or checkpoint git unless the human asks to preserve durable content.
+- **Discussion** — Answer directly. Do not create files, update indexes, append logs, or checkpoint git unless the human asks to preserve durable content or the AI-Authored Artifact Policy permits a narrowly scoped proactive guidance update.
 - **Retrieval** — For read-only lookup, follow visible retrieval rules and answer with concrete paths. Do not log ordinary retrieval unless the human asks to save the result or a maintenance action is performed.
 - **Durable artifact creation** — For requested saved durable content, place it semantically, update relevant indexes and logs, verify, and follow Git Policy when checkpointing is appropriate.
 - **Maintenance or restructure** — For log rotation, index cleanup, link repair, temporary artifact handling, mature-area restructuring, or broad moves, state scope and risk first, ask before high-risk or broad changes, preserve rollback paths, and update visible indexes and logs after execution.
@@ -163,6 +163,8 @@ Do not save ordinary chat responses as files by default.
 Create or update AI-authored files only when the human explicitly asks, the file is required for maintenance, the content has durable reuse value, the content captures a stable decision/protocol/plan/reference, or not saving it would lose important context.
 
 Do not create files for ordinary explanations, temporary discussion, intermediate reasoning, unstable speculative ideas, duplicate content, content better left in conversation, or artifacts that would create clutter.
+
+When a human correction, non-obvious failure recovery, consequential verification result, or stable decision clearly establishes reusable area- or filesystem-local guidance, check opportunistically whether it is already represented in an appropriate visible artifact; this does not require a separate retrospective or filesystem-wide scan. If not, and the guidance has clear long-term value, make the smallest non-duplicative update to an appropriate existing artifact, or create a new artifact in the correct semantic location when none exists. This narrowly scoped write may occur during Discussion without separate confirmation only when the scope and target are clear; it must not broaden the task into unrelated maintenance. Retrieval remains read-only unless the human requests preservation. Report actual writes under the normal task-report policy.
 
 Place AI-authored files by semantic content, not by source. Do not create generic `generated/`, `ai-authored/`, or `chat-output/` directories by default.
 
