@@ -59,7 +59,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 ## Draft
 
-- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7. The first anchored review of candidate commit `992b777` produced P0=0, P1=5, P2=3 and `NO-GO to freeze or release`. The current revision addresses all four candidate-body P1 findings and both candidate-body P2 findings by closing disclosure/output sinks, external-store visible authority, multi-consumer migration cleanup, fail-closed readiness reporting, long-lived-copy wording, and same-user isolation breadth. It also completes the release checklist below. The revised body remains unpublished, unfrozen, unvalidated by a real pilot, and pending a new anchored review; the pilot release gate remains open.
+- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7. The first revision at commit `b24c1e2` closed most prior findings, but independent semantic review retained one candidate-body P1 for external-store visible authority and one P2 for output-sink classification; main review also found release-checklist ordering ambiguity. The current revision requires persistent visible external-store protection/unlock/recovery and failure state, makes a direct authorized human response the sole output exception, closes shell-history and human-visible tool-output paths, and places draft reset/index update before inner release verification and commit. The body remains unpublished, unfrozen, unvalidated by a real pilot, and pending a new anchored review; the pilot release gate remains open.
 
 ## Release process
 
@@ -69,8 +69,8 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 4. Set the finalized release heading to `# System Protocol vX YYYY-MM-DD`.
 5. Copy the finalized content to `SYSTEM.vX.md` and copy the same content to [[../llmfs/templates/SYSTEM.md]].
 6. Update the repository `README.md` version structure and, when the install template changes, update the package version in `llmfs/SKILL.md`.
-7. Verify the immutable release, install template, draft baseline, index links, and package metadata before committing the inner repository release.
-8. After the inner release commit, update the outer submodule pointer, design status, visible indexes, and `LOG.md` with task-scoped staging.
-9. Treat package release and installation into any active managed-filesystem root as separate stages; do not modify a root `SYSTEM.md` without separate authorization.
-10. Reset or continue [[SYSTEM.next.md]] as the next mutable draft with the heading `# System Protocol next`, and update this index.
+7. Reset or continue [[SYSTEM.next.md]] as the next mutable draft with the heading `# System Protocol next`, and update this index.
+8. Verify the immutable release, install template, draft baseline, index links, and package metadata before committing the inner repository release.
+9. After the inner release commit, update the outer submodule pointer, design status, visible indexes, and `LOG.md` with task-scoped staging.
+10. Treat package release and installation into any active managed-filesystem root as separate stages; do not modify a root `SYSTEM.md` without separate authorization.
 11. If release fails before completion, return to the frozen candidate. After release, never modify the immutable `SYSTEM.vX.md`; publish a later corrective version instead.
