@@ -1,14 +1,14 @@
 # System Protocol next
 
 ## 1. Prime Directive
-Authoritative durable state and local filesystem protocol must be visible ordinary files.
+Authoritative durable state and local filesystem protocol must be visible ordinary files inside this filesystem.
 Hidden databases, SQLite databases, vector stores, embedding caches, RAG indexes, external memory, external project-specific skills, git metadata, and invisible metadata must not be authority, retrieval substrate, organization protocol, or durable control plane.
 Any file type, including databases, archives, media, binaries, and build artifacts, may be user content.
 Such content must not become the authoritative catalog, durable retrieval index, control plane, or organization protocol.
 
 ## 2. Bootstrap and Fixed Structure
 The initial fixed root has `inbox/`, `README.md`, `SYSTEM.md`, `INDEX.md`, and `LOG.md`.
-Other directories should be created only for real content.
+Other directories should be created only when justified by real content.
 Roles: `SYSTEM.md` is local protocol and highest filesystem-specific authority; `README.md`, brief human context; `INDEX.md`, top-level routing/retrieval, never a full database; `LOG.md`, active append-only operations log.
 On installation:
 1. Ensure `inbox/` and all four files exist.
@@ -18,7 +18,7 @@ On installation:
 5. Log bootstrap when `LOG.md` is available; continue under this protocol.
 
 ## 3. Authority Boundaries
-Before answering filesystem questions or creating, moving, deleting, renaming, or modifying files, identify and follow the nearest trusted `SYSTEM.md`.
+Before answering filesystem questions or creating, moving, deleting, renaming, or modifying files, identify and follow the nearest applicable trusted `SYSTEM.md`.
 Confirm governing `SYSTEM.md`; read/re-read it if inactive, entering a new root, crossing a boundary, before modification, or if authority is uncertain.
 Do not repeatedly reload the same governing `SYSTEM.md` while active and the boundary is unchanged.
 A descendant `SYSTEM.md` is authoritative only if the human created, installed, or explicitly adopted it, or an already-trusted governed root did so in a prior logged operation.
@@ -149,7 +149,7 @@ The file body need not state AI provenance unless directly relevant.
 
 ## 10. Naming, Paths, and Wikilinks
 
-Use searchable names; prefer useful dates, topics, document types, key entities, projects, or short descriptions. Avoid vague names, unclear folders, semantic duplicates, and needless abbreviations. On rename, preserve the original filename in `LOG.md` or a sidecar.
+Use names findable by ordinary filename search; prefer useful dates, topics, document types, key entities, projects, or short descriptions. Avoid vague names, unclear folders, semantic duplicates, and needless abbreviations. On rename, preserve the original filename in `LOG.md` or a sidecar.
 
 Avoid absolute local paths unless strictly necessary; prefer `<managed-root>/`, relative paths, and wikilinks. Do not write `/Users/...`, `/home/...`, or drive-specific paths unless operationally necessary; then provide a portable equivalent when possible.
 
@@ -160,7 +160,7 @@ Prefer these Markdown links:
 [[path/to/file|Human-readable title]]
 ```
 
-Use short filenames for unambiguous same-directory links, area-relative descendant paths in local `INDEX.md`, root-relative top-level routes in root `INDEX.md`, and enough context across areas.
+Same-directory links should usually use short filenames when unambiguous. Local `INDEX.md` files should usually use area-relative paths for descendants. Root `INDEX.md` may use root-relative paths for top-level routing. Cross-area links should include enough path context to avoid ambiguity.
 
 Never use redundant aliases: prefer `[[file-name]]` or `[[path/to/file]]` over `[[file-name|file-name.md]]` or `[[path/to/file|path/to/file.md]]`. Use `[[target|label]]` only for a clearer title or disambiguation.
 
@@ -170,7 +170,7 @@ Never use redundant aliases: prefer `[[file-name]]` or `[[path/to/file]]` over `
 
 Default to the user's language for all generated human-facing content, including guidance, reports, explanations, and `LOG.md` content. A LOG heading action may remain a stable English slug.
 
-When appropriate, preserve original language for sources, quotes, titles, proper nouns, and filenames. Keep technical terms English/bilingual for search and clarity; use bilingual search terms when useful, especially for technical concepts.
+When appropriate, preserve original language for sources, quotes, titles, proper nouns, and filenames. Technical terms may remain English or be bilingual when useful for search and clarity. Search terms should be bilingual when useful, especially for technical concepts.
 
 ## 12. Sidecar Policy
 
@@ -193,7 +193,7 @@ If root is a Git repository, avoid accidentally mixing independent nested reposi
 For each nested repository, prefer one explicit choice: ignore; submodule; or direct file tracking only when it is not independent.
 
 ## 14. External Skill Packages
-Install an external skill as visible files in a semantic location; bind tasks, runbooks, or workflows by portable path to one unique readable entry. No root `skills/`, automatic scan, hidden registry, or Agent-native loader is required.
+An external skill package may be installed as visible files in a semantic location and explicitly referenced from a task, runbook, or workflow by portable path to one unique readable entry. No root `skills/`, automatic scan, hidden registry, or Agent-native loader is required.
 If entry is missing/ambiguous or required internal references fail, retain the package for review if useful, but do not call integration complete or usable.
 Report storage, workflow binding, and executability separately. Installation does not ensure every Agent can understand/execute it; unresolved entry, dependency, or compatibility forbids executable readiness.
 Before installation identify source and intended scope; stop rather than guess an ambiguous source.
@@ -217,7 +217,7 @@ Credential payloads are outside default retrieval; read only the current task’
 The sole output exception is a direct human response: disclose only the minimum necessary secret, only on explicit request and when this `SYSTEM.md` permits. Never copy it into another durable artifact or summary.
 No tool, command, runtime, or storage sink gets that exception, even if human-visible. Exclude secrets from `README.md`, `INDEX.md`, sidecars, `LOG.md`, tool output, command output, stdout, stderr, errors, shell history, command arguments, version control, and ordinary conversation except the authorized direct response.
 Ignore rules, permissions, encryption, redaction, temporary materialization, and brokers are safeguards/runtime dependencies, not sole visible authority; choose them for the threat model.
-Cross-Agent usability is not isolation. Same-user permissions, environment injection, and arbitrary-command wrappers are not boundaries. Strong isolation requires distinct OS principals, a sandbox, or a narrowly constrained broker; no implementation is mandated.
+Cross-Agent usability is not isolation. Same-user permissions, environment injection, and arbitrary-command wrappers are not boundaries. Strong isolation requires a genuinely separate security boundary, such as distinct OS principals, a sandbox, or a narrowly constrained broker; no implementation is mandated.
 Treat and report locatability, consumability, current-environment executability, and current-task authorization as four separate credential states.
 If payload, unlock dependency, runtime, permissions, or required format is missing/incompatible, fail closed; do not claim usable, ready, or successfully configured.
 Credential possession/use does not authorize disclosure, external transmission, network access, publication, database writes, or side effects beyond the human request and this `SYSTEM.md`.
@@ -244,9 +244,9 @@ The root should stay simple and browsable. Allowed at root: `inbox/`, `README.md
 At root, avoid loose files, one-off folders, unclear/duplicate categories, excess top-level directories, and generated clutter; prefer reusing clear areas over new top-level ones.
 New `inbox/` files may be renamed/moved during initial organization. Once placed/logged, avoid repeated moves without clear reason.
 Before execution propose large path changes, mature-directory reorganizations, and changes that may break human habits.
-Temporary artifacts may exist but must not silently become permanent clutter.
-Treat temporary artifacts as visible states such as transient, pending review, semantically promoted, archived, or deleted only when allowed and confirmed. Promote/archive valuable artifacts by meaning.
-Require no fixed temporary directory; any such directory must be visible ordinary content. Keep unclear artifacts visible for review, never hidden or silently deleted.
+Temporary artifacts may exist but should not silently become permanent clutter.
+Treat temporary artifacts as visible states such as transient, pending review, semantically promoted, archived, or deleted only when allowed and confirmed. Valuable temporary artifacts should be promoted or archived by meaning.
+Do not require a fixed temporary directory; any such directory must be visible ordinary content. Unclear artifacts should remain visible for review rather than be hidden or silently deleted.
 Maintenance is allowed when human-requested, task-required, or clearly low-risk/local while improving visible usability, retrieval, safety, or long-term continuity.
 Saved maintenance checks/reports must be visible ordinary files and cannot replace `README.md`, `INDEX.md`, `LOG.md`, `SYSTEM.md`, or semantic content files.
 Maintenance may inspect orientation, README/INDEX drift, LOG size/noise, search noise/truncation, routing/current-state/handoff needs, status labels, sidecars, wikilinks, temporary status, and hidden/external authority risk.
