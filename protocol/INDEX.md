@@ -73,4 +73,4 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 8. Verify the immutable release, install template, draft baseline, index links, and package metadata before committing the inner repository release.
 9. After the inner release commit, update the outer submodule pointer, design status, visible indexes, and `LOG.md` with task-scoped staging.
 10. Treat package release and installation into any active managed-filesystem root as separate stages; do not modify a root `SYSTEM.md` without separate authorization.
-11. If release fails before completion, return to the frozen candidate. After release, never modify the immutable `SYSTEM.vX.md`; publish a later corrective version instead.
+11. If release fails before the verified inner release commit, clear partial release changes and return to the frozen candidate. If failure occurs after that commit, preserve immutable `SYSTEM.vX.md`; repair outer integration or publish a later corrective version rather than modifying/deleting the release.
