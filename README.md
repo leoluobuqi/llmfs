@@ -19,6 +19,7 @@ llmfs/
 │   ├── SYSTEM.v5.md
 │   ├── SYSTEM.v6.md
 │   ├── SYSTEM.v7.md
+│   ├── SYSTEM.v8.md
 │   └── SYSTEM.next.md
 └── llmfs/
     ├── SKILL.md

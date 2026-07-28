@@ -6,7 +6,7 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [[SYSTEM.v7.md]]
+- Latest released: [[SYSTEM.v8.md]]
 - Current install template: [[../llmfs/templates/SYSTEM.md]]
 - Draft for next release: [[SYSTEM.next.md]]
 
@@ -56,10 +56,11 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | v5 | [[SYSTEM.v5.md]] | 2026-07-03 | Added minimal scoped subagent delegation guidance under task modes: use only when materially helpful, treat subagents as agents under the same applicable `SYSTEM.md`, prefer parallel read-only delegation, path-scope mutating subtasks, and verify key subagent claims before reporting or preserving durable results. |
 | v6 | [[SYSTEM.v6.md]] | 2026-07-22 | Added narrowly scoped proactive experience capture during Discussion when reusable guidance, long-term value, scope, and target are clear; Retrieval remains read-only, and the rule avoids separate retrospectives, filesystem-wide scans, unrelated maintenance, and duplicate reporting mechanisms. |
 | v7 | [[SYSTEM.v7.md]] | 2026-07-22 | Added product-independent external skill packages as visible ordinary-file dependencies with semantic placement, explicit task/runbook/workflow references, source and provenance checks, archive target safety, scoped method authorization, separate storage/binding/executability states, cross-Agent compatibility limits, and filesystem-local experience separation. |
+| v8 | [[SYSTEM.v8.md]] | 2026-07-28 | Added product-independent workflow credential authority, retrieval exclusion, disclosure and external-side-effect boundaries, four-state readiness, same-user isolation limits, migration/cleanup safeguards, and optional external-store bindings; compacted the full protocol while preserving reviewed semantic and safety behavior. |
 
 ## Draft
 
-- [[SYSTEM.next.md]] — mutable draft containing the exact frozen v8 candidate body at commit `26eb332` / blob `114f2084…fa82` / SHA-256 `4fc2ef65…d45f1` (25,830 characters). Independent semantic/safety, 408→158 mapping/catalog/scenario, structure/minimality/version-boundary, pilot-gate, release-order, and P2-closure reviews are complete with final P0=0, P1=0, P2=0 and `GO to v8 release workflow`. Operational credential validation was not performed; a real pilot is optional post-release validation, not a freeze blocker, and operational cross-Agent compatibility is not established. The candidate is frozen but unpublished; any body edit invalidates the freeze. Actual v8 release still requires a separate explicit human request, and active-root installation remains separately authorized.
+- [[SYSTEM.next.md]] — mutable next-cycle draft initialized from v8 and currently body-identical to [[SYSTEM.v8.md]] except for the required draft heading. Future protocol changes belong here and require a new candidate/freeze cycle; they must not modify immutable v8. Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
 
 ## Release process
 
