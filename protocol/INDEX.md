@@ -59,16 +59,18 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 ## Draft
 
-- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7: one protected canonical payload for long-lived filesystem-local workflow credentials, portable Agent adapters, separation from Agent-native bootstrap authentication and externally governed secrets, credential-payload exclusion from default retrieval, plaintext disclosure and version-control boundaries, same-user Agent-isolation limits, scoped use authorization, and verified migration before old-copy deletion. The candidate does not require a fixed credential directory, uniform payload format, encryption tool, manifest, broker, or access-audit system. An anchored main review plus two independent read-only review lanes of candidate commit `992b777` produced the consolidated result P0=0, P1=5, P2=3 and `NO-GO to freeze or release`. Candidate-body P1 findings cover disclosure/output ambiguity, external-store visible authority, multi-consumer migration cleanup, and fail-closed readiness reporting; the fifth P1 is the still-pending real pilot release gate. P2 findings cover long-term non-authority-copy wording, same-user isolation breadth, and the release checklist. The candidate body remains unchanged, unpublished, unfrozen, and unvalidated by a real pilot; any body revision requires a new commit/hash and review.
+- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7. The first anchored review of candidate commit `992b777` produced P0=0, P1=5, P2=3 and `NO-GO to freeze or release`. The current revision addresses all four candidate-body P1 findings and both candidate-body P2 findings by closing disclosure/output sinks, external-store visible authority, multi-consumer migration cleanup, fail-closed readiness reporting, long-lived-copy wording, and same-user isolation breadth. It also completes the release checklist below. The revised body remains unpublished, unfrozen, unvalidated by a real pilot, and pending a new anchored review; the pilot release gate remains open.
 
 ## Release process
 
-1. Edit [[SYSTEM.next.md]].
-2. Review and finalize the draft.
-3. Choose the next version number, such as `v1`, and the release date.
+1. Edit [[SYSTEM.next.md]] as a mutable draft.
+2. Anchor and review the exact candidate, and satisfy any candidate-specific design, pilot, independent-review, and freeze gates before release.
+3. Choose the next version number and release date only after the freeze gate passes.
 4. Set the finalized release heading to `# System Protocol vX YYYY-MM-DD`.
-5. Copy the finalized content to `SYSTEM.vX.md`.
-6. Copy the same finalized content to [[../llmfs/templates/SYSTEM.md]].
-7. Reset or continue [[SYSTEM.next.md]] as the next mutable draft with the heading `# System Protocol next`.
-8. Update this index.
-9. After release, never modify the new `SYSTEM.vX.md`.
+5. Copy the finalized content to `SYSTEM.vX.md` and copy the same content to [[../llmfs/templates/SYSTEM.md]].
+6. Update the repository `README.md` version structure and, when the install template changes, update the package version in `llmfs/SKILL.md`.
+7. Verify the immutable release, install template, draft baseline, index links, and package metadata before committing the inner repository release.
+8. After the inner release commit, update the outer submodule pointer, design status, visible indexes, and `LOG.md` with task-scoped staging.
+9. Treat package release and installation into any active managed-filesystem root as separate stages; do not modify a root `SYSTEM.md` without separate authorization.
+10. Reset or continue [[SYSTEM.next.md]] as the next mutable draft with the heading `# System Protocol next`, and update this index.
+11. If release fails before completion, return to the frozen candidate. After release, never modify the immutable `SYSTEM.vX.md`; publish a later corrective version instead.
