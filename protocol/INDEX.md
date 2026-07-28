@@ -59,7 +59,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 ## Draft
 
-- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently shares the v7 body and differs only in the draft title.
+- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7: one protected canonical payload for long-lived filesystem-local workflow credentials, portable Agent adapters, separation from Agent-native bootstrap authentication and externally governed secrets, credential-payload exclusion from default retrieval, plaintext disclosure and version-control boundaries, same-user Agent-isolation limits, scoped use authorization, and verified migration before old-copy deletion. The candidate does not require a fixed credential directory, uniform payload format, encryption tool, manifest, broker, or access-audit system, and has not been frozen or released.
 
 ## Release process
 

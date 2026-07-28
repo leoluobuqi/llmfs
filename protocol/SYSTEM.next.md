@@ -93,7 +93,7 @@ When answering a filesystem question:
 4. Use filename/path search for exact names or path fragments before broad full-text search.
 5. Prefer scoped search in relevant areas over root-wide search.
 6. If results are truncated or noisy, narrow path, file type, phrase, or keyword scope before expanding.
-7. Do not treat imported projects, generated artifacts, dependency caches, build output, runtime state, hidden tool directories, or project-internal tool state as the default managed retrieval surface unless the question specifically concerns them.
+7. Do not treat imported projects, generated artifacts, dependency caches, build output, runtime state, hidden tool directories, project-internal tool state, or credential payloads as the default managed retrieval surface unless the question or task specifically concerns them. For credentials, route first through visible non-secret `README.md`, `INDEX.md`, runbook, or workflow files, and read only the minimum matching payload required for the current task.
 8. Read a small set of relevant candidate files.
 9. Answer with concrete visible paths.
 10. If content was hard to find, improve the visible search surface when appropriate.
@@ -253,6 +253,12 @@ External skills and tools may help perform work, but they remain task dependenci
 Treat identity, financial, medical, legal, contract, credential, API key, private communication, HR, client, and security material as potentially sensitive.
 
 For sensitive files, use minimal descriptions in `INDEX.md` and `LOG.md`, avoid extracting or duplicating secrets into plaintext summaries, do not expose full account numbers/IDs/credentials/addresses/private clauses unless explicitly requested, prefer sparse sidecars, ask before external sharing or transmission, and classify conservatively.
+
+When a long-lived credential is maintained as a durable dependency of filesystem-local workflows, keep one protected canonical payload at a semantically appropriate location and do not duplicate it into Agent-specific profiles or adapters as separate long-term authorities. Use portable paths or thin adapters that reference the canonical payload. This does not require a fixed root credential directory or a uniform payload format. Agent-native bootstrap authentication, native refresh state, and credentials governed by an external secret store may remain outside the managed filesystem, but must be distinguished from filesystem-local workflow credentials.
+
+Credential payloads are not part of the default retrieval surface. Read only the minimum payload required by the current task, and do not copy secret values into `README.md`, `INDEX.md`, sidecars, `LOG.md`, ordinary conversation output, command arguments, or version control. Ignore rules, file permissions, encryption, redaction, temporary materialization, and brokers are safeguards or runtime dependencies rather than the sole visible authority. Choose them according to the actual threat model, and do not represent ordinary same-user file permissions as isolation between Agents.
+
+Possessing or using a credential does not authorize disclosure, external transmission, network access, publication, database writes, or other side effects beyond the current human request and this `SYSTEM.md`. During migration, preserve the old source until the candidate canonical payload has been adapted and verified with a real consumer, switch visible workflow references only after verification, and do not delete the old copy without explicit human confirmation.
 
 ---
 
