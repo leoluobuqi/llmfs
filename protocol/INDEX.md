@@ -59,12 +59,12 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 ## Draft
 
-- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7. The first revision at commit `b24c1e2` closed most prior findings, but independent semantic review retained one candidate-body P1 for external-store visible authority and one P2 for output-sink classification; main review also found release-checklist ordering ambiguity. The current revision requires persistent visible external-store protection/unlock/recovery and failure state, makes a direct authorized human response the sole output exception, closes shell-history and human-visible tool-output paths, and places draft reset/index update before inner release verification and commit. The body remains unpublished, unfrozen, unvalidated by a real pilot, and pending a new anchored review; the pilot release gate remains open.
+- [[SYSTEM.next.md]] — mutable working draft for the next protocol release; it currently adds a product-independent credential-management candidate to v7. Candidate commit `6737e7b` passed targeted independent semantic/safety and version/minimality review: candidate body P0=0, P1=0, P2=0. It closes disclosure/output sinks, persistent external-store visible authority, multi-consumer migration cleanup, fail-closed readiness reporting, long-lived-copy wording, same-user isolation breadth, and release-order findings without introducing a fixed credential directory, schema, encryption tool, broker, or Agent-specific runtime. The candidate is unpublished, unfrozen, and unvalidated by a real pilot. It may proceed only to a separately authorized, low-risk, reversible pilot covering at least two independent consumers; that pilot must pass before freeze can be requested, so freeze and release remain `NO-GO`.
 
 ## Release process
 
 1. Edit [[SYSTEM.next.md]] as a mutable draft.
-2. Anchor and review the exact candidate, and satisfy any candidate-specific design, pilot, independent-review, and freeze gates before release.
+2. Anchor and review the exact candidate. Satisfy any candidate-specific design and pilot gates before requesting freeze, then pass independent freeze review before release.
 3. Choose the next version number and release date only after the freeze gate passes.
 4. Set the finalized release heading to `# System Protocol vX YYYY-MM-DD`.
 5. Copy the finalized content to `SYSTEM.vX.md` and copy the same content to [[../llmfs/templates/SYSTEM.md]].
