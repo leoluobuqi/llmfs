@@ -30,6 +30,8 @@ llmfs/
 
 ## Workflow
 
+待发布：`llmfs/templates/AGENTS.md` 已同步祖先链限定的 `SYSTEM.md` 查找声明及示例；package 版本将在下一次发布时统一更新，冻结的 `SYSTEM.next.md` 正文未变。
+
 - Edit and iterate the next candidate protocol in `protocol/SYSTEM.next.md`.
 - Released protocol snapshots live in immutable `protocol/SYSTEM.vX.md` files.
 - When the protocol is stable, release it by copying `protocol/SYSTEM.next.md` to both `protocol/SYSTEM.vX.md` and `llmfs/templates/SYSTEM.md`.

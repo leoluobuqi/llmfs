@@ -2,6 +2,29 @@
 
 This file only routes agents to the local protocol.
 
+## SYSTEM.md discovery safety
+
+To locate the governing `SYSTEM.md`, inspect only the current directory and its direct ancestor chain.
+
+- Never use recursive searches such as `find ..`, `find ~`, or root-wide searches.
+- Do not scan sibling directories or other descendants of parent directories.
+- Check exact candidate paths one level at a time and stop at the nearest applicable `SYSTEM.md`.
+- If the current directory already contains `SYSTEM.md`, read it directly without performing a discovery search.
+
+A safe ancestor-only discovery pattern is:
+
+```bash
+dir="$PWD"
+while :; do
+  if [ -f "$dir/SYSTEM.md" ]; then
+    printf '%s\n' "$dir/SYSTEM.md"
+    break
+  fi
+  [ "$dir" = "/" ] && break
+  dir="$(dirname "$dir")"
+done
+```
+
 Before creating, moving, deleting, renaming, or modifying files:
 
 1. Confirm whether the current directory is under a `SYSTEM.md`-governed tree.
