@@ -6,7 +6,7 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [[SYSTEM.v8.md]]
+- Latest released: [[SYSTEM.v9.md]]
 - Current install template: [[../llmfs/templates/SYSTEM.md]]
 - Draft for next release: [[SYSTEM.next.md]]
 
@@ -57,10 +57,11 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | v6 | [[SYSTEM.v6.md]] | 2026-07-22 | Added narrowly scoped proactive experience capture during Discussion when reusable guidance, long-term value, scope, and target are clear; Retrieval remains read-only, and the rule avoids separate retrospectives, filesystem-wide scans, unrelated maintenance, and duplicate reporting mechanisms. |
 | v7 | [[SYSTEM.v7.md]] | 2026-07-22 | Added product-independent external skill packages as visible ordinary-file dependencies with semantic placement, explicit task/runbook/workflow references, source and provenance checks, archive target safety, scoped method authorization, separate storage/binding/executability states, cross-Agent compatibility limits, and filesystem-local experience separation. |
 | v8 | [[SYSTEM.v8.md]] | 2026-07-28 | Added product-independent workflow credential authority, retrieval exclusion, disclosure and external-side-effect boundaries, four-state readiness, same-user isolation limits, migration/cleanup safeguards, and optional external-store bindings; compacted the full protocol while preserving reviewed semantic and safety behavior. |
+| v9 | [[SYSTEM.v9.md]] | 2026-09-10 | 明确文件变更任务的本地提交、无需重复确认及最终结果报告要求；§4、§9 统一收尾引用。 |
 
 ## Draft
 
-- [[SYSTEM.next.md]] — 从 v8 初始化，§4、§9、§13 的最小改动明确本地提交、无需重复确认及结果报告。2026-09-10 候选一致性、规则级场景及独立冻结审查通过，GO；冻结正文 SHA-256：`80514425908074774792951de9e8176953a97b2506c0c5e844e5cedc81d28640`。尚未发布或安装，immutable v8 与安装模板未变；正文再改须重新核验和审查。Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
+- [[SYSTEM.next.md]] — v9 发布后的下一周期可变草稿；除 draft 标题外正文与 [[SYSTEM.v9.md]] 一致。后续变更须重新经过候选验证与独立冻结审查，不得修改已发布 v9。Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
 
 ## Release process
 
