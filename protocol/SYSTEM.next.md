@@ -39,10 +39,11 @@ The LLM should make routine organization decisions by default and ask before hig
 Choose the lightest mode meeting the request without weakening safety, visibility, or auditability:
 - **Discussion:** answer directly; no files, index updates, log appends, or git checkpoints unless the human requests preservation or the AI-Authored Artifact Policy permits a narrow proactive guidance update.
 - **Retrieval:** follow §5 and give concrete paths; log only when saving is requested or maintenance occurs.
-- **Durable artifact creation:** place content semantically; update relevant indexes/logs; verify; apply Git Policy when checkpointing is appropriate.
+- **Durable artifact creation:** place content semantically; update relevant indexes/logs; verify; complete applicable Git closeout requirements under §13.
 - **Maintenance or restructure:** for log rotation, index cleanup, link repair, temporary-artifact handling, mature-area restructuring, or broad moves. First state scope/risk and obtain required high-risk/broad-change approval; preserve rollback; afterward update visible indexes/logs.
 Reports match risk; simple answers may be brief.
 Ordinary file reports should give changed paths and verification.
+Before the final response for a file-changing task, check and complete applicable verification, index/current-state updates, logging, and §13 Git requirements. Report changed paths, verification results, and the commit result or reason for not committing.
 High-risk/broad reports should give scope, risks, deferrals, and rollback.
 Brevity must not omit required visible logging, verification, or rollback.
 Delegate scoped work only for broad, long-running, verification-heavy, or context-heavy tasks.
@@ -141,7 +142,7 @@ In Discussion, this narrow write needs no separate confirmation only with clear 
 
 Place AI-authored files by semantic content, not source. Do not default to `generated/`, `ai-authored/`, or `chat-output/` directories.
 
-When creating/updating an AI-authored file: confirm durability; choose a semantic target, reusing existing areas; avoid overwriting; use §10 portable paths/wikilinks; on responsibility changes update relevant `README.md`, `INDEX.md`, and `LOG.md`; verify links/structure; follow §13 when checkpointing fits.
+When creating/updating an AI-authored file: confirm durability; choose a semantic target, reusing existing areas; avoid overwriting; use §10 portable paths/wikilinks; on responsibility changes update relevant `README.md`, `INDEX.md`, and `LOG.md`; verify links/structure; complete applicable Git closeout requirements under §13.
 
 For long work, create/update a visible current-state / handoff artifact when status would otherwise survive only in session history, context compaction, tool output, or the `LOG.md` tail. Place it semantically, with no fixed default directory; update when used or mark historical when stale.
 
@@ -183,7 +184,9 @@ Never claim binary content was inspected unless actually parsed, OCRed, transcri
 ## 13. Git and Nested Project Policy
 Git is optional and external; the managed filesystem must remain understandable from its visible working tree alone.
 Git may support snapshots, diffs, rollback, sync, backup, and accidental-change checks, but never serve as authoritative state, hidden retrieval, a `LOG.md` replacement, semantic organization, or a replacement for visible README/INDEX/sidecars.
-When root is a Git repository, prefer one local task-level commit with a semantic message after each completed, verified, and logged file-changing task, unless visible conventions or the human directs otherwise.
+When the managed root is a Git repository, each file-changing task must create one local task-level commit with a semantic message after completing the work, verification, and required logging, unless the human explicitly requests no commit or applicable visible repository conventions explicitly provide an exception. This rule authorizes the local commit without asking again; it does not bypass tool permissions or safety requirements.
+Before the final response, verify commit success and report the commit hash. If there are no committable task changes, an applicable exception, or a blocker such as permissions or failed checks, report the specific reason for not committing. Never silently omit the commit or report an outstanding commit step as complete. Do not create empty commits or initialize a repository solely to satisfy this rule; Discussion and Retrieval without file changes require no commit.
+Stage and commit only this task's changes. If a file or the staging area contains changes from other tasks, safely isolate this task's changes without discarding or committing unrelated work; if reliable isolation is not possible, report the blocker.
 Stage only explicit task paths; avoid `git add -A` or broad staging unless the whole working tree belongs to the task.
 Do not push, branch, tag, merge, or rewrite history unless explicitly asked.
 Coding projects and nested Git repositories may exist as content; treat each as a self-contained semantic area.
