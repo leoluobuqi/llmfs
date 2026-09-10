@@ -60,7 +60,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 ## Draft
 
-- [[SYSTEM.next.md]] — 从 v8 初始化的下一周期可变草稿；2026-09-10 按用户要求将 §4、§9、§13 精简为必要改动：明确本地提交、无需重复确认及最终报告要求，沿用既有暂存和安全规则。尚未冻结、发布或安装；immutable v8 与安装模板未变，发布前仍须通过候选验证与独立冻结审查。Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
+- [[SYSTEM.next.md]] — 从 v8 初始化，§4、§9、§13 的最小改动明确本地提交、无需重复确认及结果报告。2026-09-10 候选一致性、规则级场景及独立冻结审查通过，GO；冻结正文 SHA-256：`80514425908074774792951de9e8176953a97b2506c0c5e844e5cedc81d28640`。尚未发布或安装，immutable v8 与安装模板未变；正文再改须重新核验和审查。Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
 
 ## Release process
 
