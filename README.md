@@ -58,11 +58,11 @@ Open the directory you want to manage in your agent, or give it the exact target
 
 Paste this request into the agent. If you have not opened the target directory, replace “the current directory” with its exact path:
 
-> Retrieve `llmfs/SKILL.md`, `llmfs/LICENSE`, `llmfs/templates/SYSTEM.md`, and `llmfs/templates/AGENTS.md` from https://github.com/leoluobuqi/llmfs, keeping the package's relative file structure intact. Read the skill and follow its initialization or adoption workflow to set up the current directory as an LLM-managed filesystem. Preserve existing files and their layout. If SYSTEM.md already exists, explain the situation before making changes; do not overwrite it. After installing the protocol entry points, read the target directory's SYSTEM.md and complete initialization.
+> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs to initialize the current directory. Preserve existing content and ask before replacing protocol files. Follow the installed SYSTEM.md to complete setup.
 
 Review the target before approving setup. The skill asks before initializing Git and requires explicit approval before replacing an existing `SYSTEM.md` or establishing a nested protocol boundary inside an already managed directory.
 
-The agent only needs the bootstrap package to perform setup. This request does not require a permanent skill installation or a full development checkout. Remote retrieval and local file operations depend on the agent's tools and permissions; this workflow has not been validated across all agents. If remote retrieval is unavailable, provide those same four files locally with their relative structure intact, and ask the agent to read the local `SKILL.md`.
+The agent only needs the bootstrap package to perform setup. This request does not require a permanent skill installation or a full development checkout. Remote retrieval and local file operations depend on the agent's tools and permissions; this workflow has not been validated across all agents. If remote retrieval is unavailable, provide the complete `llmfs/` package locally, including `SKILL.md`, `LICENSE`, and `templates/`, and ask the agent to read the local `SKILL.md`.
 
 ### 3. Use it in subsequent sessions
 
