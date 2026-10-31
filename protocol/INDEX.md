@@ -60,13 +60,6 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | v9 | [SYSTEM.v9.md](SYSTEM.v9.md) | 2026-09-10 | Required local commits for file-changing tasks without repeated confirmation and reporting of commit outcomes; aligned task closeout references in §4 and §9. |
 | v10 | [SYSTEM.v10.md](SYSTEM.v10.md) | 2026-10-31 | Replaced wikilinks with standard Markdown links, document-relative local targets, actual extensions, necessary filename encoding, and affected-link verification after moves/renames; aligned §§5/9/17. |
 
-## v10 validation and freeze review
-
-- Independent read-only Codex review on 2026-10-31: **PASS**, with no blocking findings. Reviewed the full candidate against v9 and the release process; independently verified hashes, change scope, index links, and preservation of v0–v9.
-- Frozen draft SHA-256: `a5eb0316d9646d8674af5908cdd5acd5005b09d5b30ad3a5dbf66a413b004618`. Approved body SHA-256 (all bytes after the first LF): `0cc3a9262ae73f4eab7a5646de36dd7fb828e6b1b0ddaae39760f690f58c6af8`. Release changes only the first heading.
-- Scope: documentation-only link-policy change; only §§5/9/10/17 differ from v9. No link-transition policy added. Release integration checks **passed**: release/template equality, approved draft body identity, historical snapshot preservation, all 40 local documentation links checked, whitespace checks, and package/README/index version consistency. This checkout has no outer Git superproject; no managed-root installation was performed.
-- No previewer, credential-consumer, or cross-Agent execution tests performed; runtime compatibility is not established. These remain validation limitations, not claims of tested support.
-
 ## Draft
 
 - [SYSTEM.next.md](SYSTEM.next.md) — mutable next-cycle draft following the v10 release, with the same body as [SYSTEM.v10.md](SYSTEM.v10.md) except for the draft heading. Future changes require a new candidate validation and independent freeze review cycle; they must not modify released v10. Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
