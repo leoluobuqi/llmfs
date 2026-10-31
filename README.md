@@ -48,29 +48,21 @@ During ordinary work, the agent starts retrieval from visible navigation, uses f
 
 ## Getting started
 
-You need an AI agent that can read local instructions and inspect and edit files in the intended directory. Git is recommended for rollback checkpoints; it is optional for a managed directory.
+Start with an AI agent that can retrieve files from GitHub, read local instructions, and inspect and edit files in your chosen directory. Git is recommended for rollback checkpoints; it is optional for a managed directory.
 
-### 1. Get the package
+### 1. Open your target directory
 
-```sh
-git clone https://github.com/leoluobuqi/llmfs.git
-```
+Open the directory you want to manage in your agent, or give it the exact target path. You can start with an empty directory or an existing collection of files.
 
-If your agent supports installing skills from a directory, copy the repository's inner `llmfs/` directory into the agent's documented skill location. Keep `SKILL.md` and `templates/` together. The package is self-contained; the development-only `protocol/` archive is not needed for installation.
+### 2. Ask the agent to initialize it
 
-Alternatively, explicitly ask a file-capable agent to read the checked-out [`llmfs/SKILL.md`](llmfs/SKILL.md) and apply it to a named target directory. Automatic skill discovery and support for `AGENTS.md` depend on the agent you use.
+Paste this request into the agent. If you have not opened the target directory, replace “the current directory” with its exact path:
 
-### 2. Initialize or adopt a directory
-
-For a new directory, give the agent a concrete target path:
-
-> Use the llmfs skill to initialize `<target-directory>` as an LLM-managed filesystem. After installing the protocol entry points, read its SYSTEM.md and complete initialization.
-
-For an existing collection:
-
-> Use the llmfs skill to adopt `<existing-directory>`. Preserve the existing files and layout, install the protocol entry points, and follow SYSTEM.md to complete setup.
+> Retrieve `llmfs/SKILL.md`, `llmfs/templates/SYSTEM.md`, and `llmfs/templates/AGENTS.md` from https://github.com/leoluobuqi/llmfs, keeping the package's relative file structure intact. Read the skill and follow its initialization or adoption workflow to set up the current directory as an LLM-managed filesystem. Preserve existing files and their layout. If SYSTEM.md already exists, explain the situation before making changes; do not overwrite it. After installing the protocol entry points, read the target directory's SYSTEM.md and complete initialization.
 
 Review the target before approving setup. The skill asks before initializing Git and requires explicit approval before replacing an existing `SYSTEM.md` or establishing a nested protocol boundary inside an already managed directory.
+
+The agent only needs the bootstrap package to perform setup. This request does not require a permanent skill installation or a full development checkout. Remote retrieval and local file operations depend on the agent's tools and permissions; this workflow has not been validated across all agents. If remote retrieval is unavailable, provide those same three files locally with their relative structure intact, and ask the agent to read the local `SKILL.md`.
 
 ### 3. Use it in subsequent sessions
 
@@ -84,6 +76,10 @@ Examples of everyday requests:
 - **Maintain a collection:** “Review this area's navigation for stale links and suggest improvements before moving existing files.”
 
 These are requests to the agent, not shell commands. Ordinary discussion is not saved automatically. File moves, deletion, replacement, and external sharing remain subject to the installed protocol and your authorization.
+
+### Optional: install the skill for repeated use
+
+If you regularly initialize or update managed directories, install the repository's inner [`llmfs/`](llmfs/) directory using your agent's supported skill installation method. Keep [`SKILL.md`](llmfs/SKILL.md) and `templates/` together. The package is self-contained; the development-only `protocol/` archive is not needed. Installation paths and automatic skill discovery depend on the agent you use.
 
 ## Checking and updating
 
@@ -109,6 +105,12 @@ Current package: **0.2.7**. Current released protocol: **System Protocol v9 (202
 - **Portability has limits.** Ordinary files make the state inspectable across tools, but operational compatibility across agents has not been established. Validate the workflow with your chosen agent.
 
 ## Repository and maintenance
+
+To work on llmfs itself, clone the development repository:
+
+```sh
+git clone https://github.com/leoluobuqi/llmfs.git
+```
 
 ```text
 llmfs/
