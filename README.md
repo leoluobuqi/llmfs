@@ -38,4 +38,4 @@ llmfs/
 
 `llmfs` itself only installs `SYSTEM.md` and `AGENTS.md`. Any `README.md`, `INDEX.md`, `LOG.md`, `inbox/`, or other filesystem structure is created later by the target directory's `SYSTEM.md`.
 
-No GitHub remote is configured yet. This repository is currently local-only.
+The GitHub repository is [leoluobuqi/llmfs](https://github.com/leoluobuqi/llmfs).
