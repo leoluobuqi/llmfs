@@ -81,6 +81,23 @@ These are requests to the agent, not shell commands. Ordinary discussion is not 
 
 If you regularly initialize or update managed directories, install the repository's inner [`llmfs/`](llmfs/) directory using your agent's supported skill installation method. Keep [`SKILL.md`](llmfs/SKILL.md) and `templates/` together. The package is self-contained; the development-only `protocol/` archive is not needed. Installation paths and automatic skill discovery depend on the agent you use.
 
+### Optional: Hermes Agent skips local commits
+
+If Hermes has read the applicable `SYSTEM.md` but still skips a required local commit because it expects another explicit request, clarify the existing authorization. If it has not read the protocol, fix that first; this setting is not a substitute for loading project rules or resolving a failed Git command.
+
+Use Hermes' [configuration tools](https://hermes-agent.nousresearch.com/docs/user-guide/configuration) to append the following sentence to `agent.coding_instructions` in the profile you use, preserving any existing instructions:
+
+> If the user-approved rules for the current repository explicitly require local commits, treat that requirement as existing authorization; do not ask for confirmation again.
+
+The usual configuration locations are:
+
+- Default profile: `~/.hermes/config.yaml`.
+- Named profile: `~/.hermes/profiles/<name>/config.yaml`.
+
+[Profiles have independent configuration](https://hermes-agent.nousresearch.com/docs/user-guide/profiles). Apply the clarification only to profiles that need it; changing the default profile does not update other profiles. Keep the workflow rules in `SYSTEM.md` rather than duplicating them here.
+
+This supplements Hermes' coding guidance; it does not enforce commits. Start a new session and verify that an ordinary file-changing task ends with the required local commit without an additional reminder. This is an optional workaround, not a guarantee of compliance or a required llmfs setup step.
+
 ## Checking and updating
 
 The skill supports four modes:
