@@ -113,7 +113,15 @@ The skill supports four modes:
 | `check` | Inspect the bootstrap files and their routing; this is not a full filesystem health audit. |
 | `update-protocol` | Compare the target's protocol with the packaged templates and, with explicit approval for replacement, update the entry points. |
 
-Updating your installed skill package does not automatically update managed directories. Ask the agent to compare a specific directory against the package before approving a protocol update. Index maintenance and content reorganization are separate operations.
+Updating your installed skill package does not automatically update managed directories. Index maintenance, link conversion, and content reorganization are separate operations.
+
+### Ask the agent to update an existing directory
+
+Open the managed directory and paste this request. If it is not the current directory, replace “the current directory” with its exact path:
+
+> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs in update-protocol mode for the current directory. First read the installed SYSTEM.md, compare it with the packaged template, and report the versions, differences, and any local customizations. Ask for my approval before making changes. After approval, update the protocol entry points and license notice as needed, preserve unrelated content, and follow the updated SYSTEM.md for verification, logging, and local commits.
+
+Review the proposed changes before approving; local customizations should not be silently discarded. This updates `SYSTEM.md`, related `AGENTS.md` routing, and `LICENSE.llmfs` as needed—not the directory's content or existing links. If remote retrieval is unavailable, provide the complete updated `llmfs/` package locally and use its `SKILL.md` instead.
 
 Current package: **0.2.10**. Current released protocol: **System Protocol v10 (2026-10-31)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
