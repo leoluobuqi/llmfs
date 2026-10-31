@@ -1,5 +1,7 @@
 # llmfs
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 **A protocol and bootstrap skill for an LLM-managed filesystem.**
 
 llmfs helps an AI agent organize, retrieve, and maintain local files using rules and context stored alongside the files themselves. Its operating protocol, navigation, and audit trail live in visible, ordinary files that people and future agents can read.
@@ -134,6 +136,7 @@ git clone https://github.com/leoluobuqi/llmfs.git
 ```text
 llmfs/
 ├── README.md
+├── README.zh-CN.md
 ├── LICENSE
 ├── llmfs/                  # Installable bootstrap skill
 │   ├── SKILL.md
