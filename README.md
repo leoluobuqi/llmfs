@@ -85,13 +85,15 @@ These are requests to the agent, not shell commands. Ordinary discussion is not 
 
 If you regularly initialize or update managed directories, install the repository's inner [`llmfs/`](llmfs/) directory using your agent's supported skill installation method. Keep [`SKILL.md`](llmfs/SKILL.md), [`LICENSE`](llmfs/LICENSE), and `templates/` together. The package is self-contained; the development-only `protocol/` archive is not needed. Installation paths and automatic skill discovery depend on the agent you use.
 
-### Hermes Agent: avoid overlapping llm-wiki workflows
+## Hermes Agent notes
+
+### Avoid overlapping llm-wiki workflows
 
 When using Hermes Agent to manage an llmfs directory, we recommend disabling the bundled `llm-wiki` skill for that workflow to avoid applying two sets of file-organization and knowledge-maintenance rules to the same directory. The local `SYSTEM.md` should govern organization, navigation, and maintenance.
 
 Use the skill-management controls supported by your Hermes version to disable only `llm-wiki`; do not disable the entire skills system or delete existing content. If you need `llm-wiki` for other work, keep that workflow separate, using a dedicated profile where supported. Start a new session after the change and verify that `llm-wiki` is no longer loaded for llmfs tasks. This is a workflow precaution, not a claim that the two tools always conflict or that disabling a skill provides a security boundary.
 
-### Optional: Hermes Agent skips local commits
+### When local commits are skipped
 
 If Hermes has read the applicable `SYSTEM.md` but still skips a required local commit because it expects another explicit request, clarify the existing authorization. If it has not read the protocol, fix that first; this setting is not a substitute for loading project rules or resolving a failed Git command.
 
