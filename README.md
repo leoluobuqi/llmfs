@@ -115,7 +115,7 @@ The skill supports four modes:
 
 Updating your installed skill package does not automatically update managed directories. Ask the agent to compare a specific directory against the package before approving a protocol update. Index maintenance and content reorganization are separate operations.
 
-Current package: **0.2.9**. Current released protocol: **System Protocol v9 (2026-09-10)**. See the [protocol version index](protocol/INDEX.md) for release history.
+Current package: **0.2.10**. Current released protocol: **System Protocol v10 (2026-10-31)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
 ## Boundaries and limitations
 
@@ -146,7 +146,7 @@ llmfs/
 │       └── SYSTEM.md       # Current released install template
 └── protocol/               # Development and release history
     ├── INDEX.md
-    ├── SYSTEM.v0.md … SYSTEM.v9.md
+    ├── SYSTEM.v0.md … SYSTEM.v10.md
     └── SYSTEM.next.md      # Mutable draft; not an install template
 ```
 

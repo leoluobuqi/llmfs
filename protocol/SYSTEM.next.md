@@ -56,7 +56,7 @@ Verify key claims before reporting completion or preserving durable results.
 ## 5. Visible State and Retrieval
 Durable retrieval aids must be visible ordinary files.
 Allowed: ordinary listing; filename/path search; ordinary full-text search of visible files; reading visible `README.md`, `INDEX.md`, `LOG.md`, sidecars, topic maps, notes, and source files.
-Aids may be root/local indexes/READMEs, sidecars, summaries, topic maps, decision notes, timelines, search terms, aliases, wikilinks, or logs; all are human-readable filesystem content, never hidden indexes.
+Aids may be root/local indexes/READMEs, sidecars, summaries, topic maps, decision notes, timelines, search terms, aliases, links, or logs; all are human-readable filesystem content, never hidden indexes.
 After §3 preflight:
 1. Start top-level routing at root `INDEX.md`.
 2. Route broad topics via local `INDEX.md`/`README.md` to the relevant semantic area.
@@ -142,30 +142,21 @@ In Discussion, this narrow write needs no separate confirmation only with clear 
 
 Place AI-authored files by semantic content, not source. Do not default to `generated/`, `ai-authored/`, or `chat-output/` directories.
 
-When creating/updating an AI-authored file: confirm durability; choose a semantic target, reusing existing areas; avoid overwriting; use §10 portable paths/wikilinks; on responsibility changes update relevant `README.md`, `INDEX.md`, and `LOG.md`; verify links/structure; follow §13.
+When creating/updating an AI-authored file: confirm durability; choose a semantic target, reusing existing areas; avoid overwriting; use §10 portable paths/links; on responsibility changes update relevant `README.md`, `INDEX.md`, and `LOG.md`; verify links/structure; follow §13.
 
 For long work, create/update a visible current-state / handoff artifact when status would otherwise survive only in session history, context compaction, tool output, or the `LOG.md` tail. Place it semantically, with no fixed default directory; update when used or mark historical when stale.
 
 The file body need not state AI provenance unless directly relevant.
 
-## 10. Naming, Paths, and Wikilinks
+## 10. Naming, Paths, and Links
 
 Use names findable by ordinary filename search; prefer useful dates, topics, document types, key entities, projects, or short descriptions. Avoid vague names, unclear folders, semantic duplicates, and needless abbreviations. On rename, preserve the original filename in `LOG.md` or a sidecar.
 
-Avoid absolute local paths unless strictly necessary; prefer `<managed-root>/`, relative paths, and wikilinks. Do not write `/Users/...`, `/home/...`, or drive-specific paths unless operationally necessary; then provide a portable equivalent when possible.
+Avoid absolute local paths unless operationally necessary; then provide a portable equivalent when possible. Use `<managed-root>/` only as an explanatory placeholder, never a link target.
 
-Prefer these Markdown links:
-```markdown
-[[path/to/file]]
-[[file-name]]
-[[path/to/file|Human-readable title]]
-```
+Use standard Markdown links: `[Title](path/to/file.md)`. Local targets must be relative to the containing document's directory, use `/`, retain actual extensions, and percent-encode special filename characters as needed. Use concise titles or filenames as labels; do not rely on leading `/`, implicit filename lookup, or application-specific link syntax.
 
-Same-directory links should usually use short filenames when unambiguous. Local `INDEX.md` files should usually use area-relative paths for descendants. Root `INDEX.md` may use root-relative paths for top-level routing. Cross-area links should include enough path context to avoid ambiguity.
-
-Never use redundant aliases: prefer `[[file-name]]` or `[[path/to/file]]` over `[[file-name|file-name.md]]` or `[[path/to/file|path/to/file.md]]`. Use `[[target|label]]` only for a clearer title or disambiguation.
-
-`LOG.md` uses ordinary exact paths for audit/rollback. During maintenance check broken links, redundant aliases, machine-specific absolute paths, and path-granularity drift.
+`LOG.md` uses ordinary exact paths for audit/rollback. Verify affected incoming and outgoing links after file moves/renames; during maintenance check broken links and non-portable paths.
 
 ## 11. Language Policy
 
@@ -250,5 +241,5 @@ Treat temporary artifacts as visible states such as transient, pending review, s
 Do not require a fixed temporary directory; any such directory must be visible ordinary content. Unclear artifacts should remain visible for review rather than be hidden or silently deleted.
 Maintenance is allowed when human-requested, task-required, or clearly low-risk/local while improving visible usability, retrieval, safety, or long-term continuity.
 Saved maintenance checks/reports must be visible ordinary files and cannot replace `README.md`, `INDEX.md`, `LOG.md`, `SYSTEM.md`, or semantic content files.
-Maintenance may inspect orientation, README/INDEX drift, LOG size/noise, search noise/truncation, routing/current-state/handoff needs, status labels, sidecars, wikilinks, temporary status, and hidden/external authority risk.
+Maintenance may inspect orientation, README/INDEX drift, LOG size/noise, search noise/truncation, routing/current-state/handoff needs, status labels, sidecars, links, temporary status, and hidden/external authority risk.
 Maintenance remains under this `SYSTEM.md`: without approval, do not delete or broadly restructure; propose high-risk/broad work first; on responsibility changes, update visible indexes/logs; preserve rollback paths.

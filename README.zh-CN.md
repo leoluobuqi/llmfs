@@ -115,7 +115,7 @@ skill 支持四种模式：
 
 更新已安装的 skill 包，不会自动更新已有的受管目录。批准协议更新前，应让 Agent 将指定目录与包内版本进行比较。索引维护和内容重组属于另外的操作。
 
-当前 package 版本：**0.2.9**。当前已发布协议：**System Protocol v9（2026-09-10）**。发布历史见[协议版本索引](protocol/INDEX.md)。
+当前 package 版本：**0.2.10**。当前已发布协议：**System Protocol v10（2026-10-31）**。发布历史见[协议版本索引](protocol/INDEX.md)。
 
 ## 边界与限制
 
@@ -146,7 +146,7 @@ llmfs/
 │       └── SYSTEM.md       # 当前已发布版本的安装模板
 └── protocol/               # 开发草案与发布历史
     ├── INDEX.md
-    ├── SYSTEM.v0.md … SYSTEM.v9.md
+    ├── SYSTEM.v0.md … SYSTEM.v10.md
     └── SYSTEM.next.md      # 可修改的草案，不用于正常安装
 ```
 

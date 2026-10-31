@@ -1,7 +1,7 @@
 ---
 name: llmfs
 description: Use when a user asks to initialize, adopt, check, or update a directory as an LLM-managed self-describing filesystem. Install or update SYSTEM.md, AGENTS.md, and their license notice, then hand off to the target SYSTEM.md.
-version: 0.2.9
+version: 0.2.10
 ---
 
 # llmfs
