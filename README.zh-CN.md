@@ -85,6 +85,12 @@ Agent 只需获取初始化包即可完成设置，无需永久安装 skill，�
 
 如果你经常初始化或更新受管目录，可以按照所用 Agent 支持的 skill 安装方式，安装仓库内层的 [`llmfs/`](llmfs/) 目录。请将 [`SKILL.md`](llmfs/SKILL.md)、[`LICENSE`](llmfs/LICENSE) 和 `templates/` 保持在同一个包中。这个包可独立使用，无需获取仅用于开发的 `protocol/` 历史归档。安装路径和 skill 自动发现机制取决于所用 Agent。
 
+### Hermes Agent：避免与 llm-wiki 工作流重叠
+
+使用 Hermes Agent 管理 llmfs 目录时，建议为该工作流禁用内置的 `llm-wiki` skill，避免两套文件组织与知识维护规则同时作用于同一目录。目录的组织、导航和维护应以本地 `SYSTEM.md` 为准。
+
+请使用当前 Hermes 版本支持的 skill 管理方式，仅禁用 `llm-wiki`，不要禁用整个 skills 系统或删除已有内容。如果其他工作仍需要 `llm-wiki`，请分开使用两套工作流，并在支持的情况下使用独立配置档案。调整后开启新会话，确认 llmfs 任务不再加载 `llm-wiki`。这是一项工作流预防措施，不代表两者必然冲突，也不意味着禁用 skill 能提供安全隔离。
+
 ### 可选：Hermes Agent 跳过本地提交
 
 如果 Hermes 已读取适用的 `SYSTEM.md`，却仍因等待另一条明确请求而跳过协议要求的本地提交，可以补充说明已有授权。如果它尚未读取协议，应先解决协议加载问题；这项设置不能代替加载项目规则，也不能解决 Git 命令执行失败的问题。
