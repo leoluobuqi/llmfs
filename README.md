@@ -58,11 +58,11 @@ Open the directory you want to manage in your agent, or give it the exact target
 
 Paste this request into the agent. If you have not opened the target directory, replace “the current directory” with its exact path:
 
-> Retrieve `llmfs/SKILL.md`, `llmfs/templates/SYSTEM.md`, and `llmfs/templates/AGENTS.md` from https://github.com/leoluobuqi/llmfs, keeping the package's relative file structure intact. Read the skill and follow its initialization or adoption workflow to set up the current directory as an LLM-managed filesystem. Preserve existing files and their layout. If SYSTEM.md already exists, explain the situation before making changes; do not overwrite it. After installing the protocol entry points, read the target directory's SYSTEM.md and complete initialization.
+> Retrieve `llmfs/SKILL.md`, `llmfs/LICENSE`, `llmfs/templates/SYSTEM.md`, and `llmfs/templates/AGENTS.md` from https://github.com/leoluobuqi/llmfs, keeping the package's relative file structure intact. Read the skill and follow its initialization or adoption workflow to set up the current directory as an LLM-managed filesystem. Preserve existing files and their layout. If SYSTEM.md already exists, explain the situation before making changes; do not overwrite it. After installing the protocol entry points, read the target directory's SYSTEM.md and complete initialization.
 
 Review the target before approving setup. The skill asks before initializing Git and requires explicit approval before replacing an existing `SYSTEM.md` or establishing a nested protocol boundary inside an already managed directory.
 
-The agent only needs the bootstrap package to perform setup. This request does not require a permanent skill installation or a full development checkout. Remote retrieval and local file operations depend on the agent's tools and permissions; this workflow has not been validated across all agents. If remote retrieval is unavailable, provide those same three files locally with their relative structure intact, and ask the agent to read the local `SKILL.md`.
+The agent only needs the bootstrap package to perform setup. This request does not require a permanent skill installation or a full development checkout. Remote retrieval and local file operations depend on the agent's tools and permissions; this workflow has not been validated across all agents. If remote retrieval is unavailable, provide those same four files locally with their relative structure intact, and ask the agent to read the local `SKILL.md`.
 
 ### 3. Use it in subsequent sessions
 
@@ -79,7 +79,7 @@ These are requests to the agent, not shell commands. Ordinary discussion is not 
 
 ### Optional: install the skill for repeated use
 
-If you regularly initialize or update managed directories, install the repository's inner [`llmfs/`](llmfs/) directory using your agent's supported skill installation method. Keep [`SKILL.md`](llmfs/SKILL.md) and `templates/` together. The package is self-contained; the development-only `protocol/` archive is not needed. Installation paths and automatic skill discovery depend on the agent you use.
+If you regularly initialize or update managed directories, install the repository's inner [`llmfs/`](llmfs/) directory using your agent's supported skill installation method. Keep [`SKILL.md`](llmfs/SKILL.md), [`LICENSE`](llmfs/LICENSE), and `templates/` together. The package is self-contained; the development-only `protocol/` archive is not needed. Installation paths and automatic skill discovery depend on the agent you use.
 
 ### Optional: Hermes Agent skips local commits
 
@@ -111,7 +111,7 @@ The skill supports four modes:
 
 Updating your installed skill package does not automatically update managed directories. Ask the agent to compare a specific directory against the package before approving a protocol update. Index maintenance and content reorganization are separate operations.
 
-Current package: **0.2.7**. Current released protocol: **System Protocol v9 (2026-09-10)**. See the [protocol version index](protocol/INDEX.md) for release history.
+Current package: **0.2.8**. Current released protocol: **System Protocol v9 (2026-09-10)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
 ## Boundaries and limitations
 
@@ -132,8 +132,10 @@ git clone https://github.com/leoluobuqi/llmfs.git
 ```text
 llmfs/
 ├── README.md
+├── LICENSE
 ├── llmfs/                  # Installable bootstrap skill
 │   ├── SKILL.md
+│   ├── LICENSE
 │   └── templates/
 │       ├── AGENTS.md
 │       └── SYSTEM.md       # Current released install template
@@ -146,3 +148,11 @@ llmfs/
 Future protocol changes begin in `protocol/SYSTEM.next.md`. Released `SYSTEM.vX.md` snapshots are immutable. Follow the review and release process in [protocol/INDEX.md](protocol/INDEX.md) before publishing a new version and updating the packaged template and version metadata.
 
 Releasing the package and updating a managed directory are separate steps. A release does not authorize replacing any directory's installed `SYSTEM.md`.
+
+## License
+
+llmfs is licensed under the [MIT License](LICENSE), covering the project's skill, protocol templates, release snapshots, and documentation. Copyright (c) 2026 Leo Luo.
+
+The installable package includes its own identical [LICENSE](llmfs/LICENSE). Keep the copyright and license notice with copies or substantial portions of llmfs, including templates distributed separately. During setup, the skill preserves the complete notice in the target's `AGENTS.md`, identifying its scope as the llmfs-derived portions of that file and the accompanying `SYSTEM.md`.
+
+Using llmfs does not change the ownership or licensing of the documents, code, or other content you manage with it.

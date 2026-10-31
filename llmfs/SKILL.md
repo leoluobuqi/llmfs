@@ -1,7 +1,7 @@
 ---
 name: llmfs
 description: Use when a user asks to initialize, adopt, check, or update a directory as an LLM-managed self-describing filesystem. Install or update only SYSTEM.md and AGENTS.md, then hand off to the target SYSTEM.md.
-version: 0.2.7
+version: 0.2.8
 ---
 
 # llmfs
@@ -69,6 +69,14 @@ Before writing to a target directory:
 7. If the target is not a git repository, ask whether to run `git init`; recommend yes because git provides local rollback checkpoints.
 8. Ask before dangerous targets such as filesystem root, home directory, system directories, or workspace parents.
 
+## Preserve the MIT License
+
+The package's [LICENSE](LICENSE) covers the skill and its templates. Keep it with any copy of the installable package; obtain it before installing if the package is incomplete.
+
+When initializing, adopting, or updating a target, preserve the complete license text in `<target>/AGENTS.md` under a `## llmfs license` section. Introduce it with: “The following license applies to the llmfs-derived portions of this AGENTS.md and the accompanying SYSTEM.md. It does not license other files managed in this directory.” Then include the complete contents of the packaged `LICENSE` in a fenced text block.
+
+Keep an existing equivalent notice without duplicating it, and preserve unrelated instructions and third-party notices. This is a licensing addition within the existing two-file installation scope; do not change the target's own LICENSE or alter the SYSTEM.md template to add notices. When a template is distributed separately, include the packaged LICENSE with it.
+
 ## Bootstrap / Init
 
 1. Run preflight.
@@ -77,7 +85,7 @@ Before writing to a target directory:
 4. If the human agrees, run `git init`.
 5. Copy `templates/SYSTEM.md` to `<target>/SYSTEM.md`.
 6. Copy or minimally merge `templates/AGENTS.md` to `<target>/AGENTS.md`.
-7. Verify `SYSTEM.md` and `AGENTS.md` exist.
+7. Preserve the MIT license as described above; verify `SYSTEM.md`, `AGENTS.md`, and the complete license notice are present.
 8. Stop using this skill as the operating authority.
 9. Read `<target>/SYSTEM.md`.
 10. By default, continue initialization by following `<target>/SYSTEM.md`, unless the human explicitly asked only to install protocol entry points.
@@ -117,12 +125,12 @@ Workflow:
 5. Report the current target heading, packaged template heading, and whether the files differ.
 6. If the target `SYSTEM.md` differs from the packaged template, do not replace it without explicit human approval.
 7. If approved, replace or patch only `SYSTEM.md` using `templates/SYSTEM.md`.
-8. Ensure `AGENTS.md` still routes to `SYSTEM.md` and does not override it; patch only the minimal router semantics when needed.
+8. Ensure `AGENTS.md` still routes to `SYSTEM.md` and does not override it; patch only the minimal router semantics when needed and preserve the MIT license as described above.
 9. Stop using this skill as the operating authority.
 10. Read the updated target `SYSTEM.md`.
 11. Follow the updated target `SYSTEM.md` for logging, verification, and git commit policy.
 
-Do not refer to development-only release archives or drafts outside the installed skill package during normal use. The installable package is self-contained: `SKILL.md` plus its `templates/` files.
+Do not refer to development-only release archives or drafts outside the installed skill package during normal use. The installable package is self-contained: `SKILL.md`, `LICENSE`, and its `templates/` files.
 
 ## Check
 
@@ -133,6 +141,7 @@ Check only the bootstrap layer:
 - `AGENTS.md` routes agents to `SYSTEM.md`;
 - `AGENTS.md` says `SYSTEM.md` wins on conflict;
 - `SYSTEM.md` declares itself the local operating authority;
+- report whether `AGENTS.md` includes the complete llmfs MIT license notice; a check does not add or replace notices;
 - if the target is not a git repository, recommend initializing git for local rollback checkpoints.
 
 Do not treat this as a full filesystem health check. Full health checks belong to the target directory's `SYSTEM.md`.
