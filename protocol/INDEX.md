@@ -67,7 +67,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 ## Release process
 
 1. Edit [SYSTEM.next.md](SYSTEM.next.md) as a mutable draft.
-2. Anchor and review the exact candidate. Satisfy or formally waive candidate-specific validation gates with honest status and narrowed claims, then pass independent freeze review before release.
+2. Anchor and review the exact candidate. Satisfy or formally waive candidate-specific validation gates with honest status and narrowed claims, then pass independent freeze review before release. Record candidate hashes and validation/review results in the PR description or release commit message, not in per-release review sections in this index.
 3. Choose the next version number and release date only after the freeze gate passes.
 4. Set the finalized release heading to `# System Protocol vX YYYY-MM-DD`.
 5. Copy the finalized content to `SYSTEM.vX.md` and copy the same content to [SYSTEM.md](../llmfs/templates/SYSTEM.md).
