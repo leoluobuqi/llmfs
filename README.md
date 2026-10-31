@@ -27,6 +27,7 @@ A newly initialized directory starts with these entry points:
 <managed-root>/
 ├── SYSTEM.md
 ├── AGENTS.md
+├── LICENSE.llmfs
 ├── README.md
 ├── INDEX.md
 ├── LOG.md
@@ -37,12 +38,13 @@ A newly initialized directory starts with these entry points:
 | --- | --- |
 | `SYSTEM.md` | The local operating protocol: organization, retrieval, safety, and maintenance rules. |
 | `AGENTS.md` | Routes agents to the applicable `SYSTEM.md`. |
+| `LICENSE.llmfs` | Preserves the llmfs license separately from the agent instructions. |
 | `README.md` | Explains the directory's purpose, scope, and human use. |
 | `INDEX.md` | Routes readers to relevant areas and important entry points. |
 | `LOG.md` | Records meaningful operations in an append-only audit trail. |
 | `inbox/` | Receives incoming files awaiting organization. |
 
-The bootstrap skill installs only `SYSTEM.md` and `AGENTS.md`. The remaining structure is created afterward by the agent following the installed protocol. Existing files are preserved during initialization; adopting a folder does not automatically reorganize its contents.
+The bootstrap skill installs `SYSTEM.md`, `AGENTS.md`, and their separate `LICENSE.llmfs` notice. The remaining structure is created afterward by the agent following the installed protocol. Existing files are preserved during initialization; adopting a folder does not automatically reorganize its contents.
 
 During ordinary work, the agent starts retrieval from visible navigation, uses filename and text search, and reads relevant files. Reusable decisions and ongoing context belong in appropriate documents; `LOG.md` records operations and does not replace those documents. Human review and direct editing remain possible because the durable state is visible.
 
@@ -111,7 +113,7 @@ The skill supports four modes:
 
 Updating your installed skill package does not automatically update managed directories. Ask the agent to compare a specific directory against the package before approving a protocol update. Index maintenance and content reorganization are separate operations.
 
-Current package: **0.2.8**. Current released protocol: **System Protocol v9 (2026-09-10)**. See the [protocol version index](protocol/INDEX.md) for release history.
+Current package: **0.2.9**. Current released protocol: **System Protocol v9 (2026-09-10)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
 ## Boundaries and limitations
 
@@ -153,6 +155,6 @@ Releasing the package and updating a managed directory are separate steps. A rel
 
 llmfs is licensed under the [MIT License](LICENSE), covering the project's skill, protocol templates, release snapshots, and documentation. Copyright (c) 2026 Leo Luo.
 
-The installable package includes its own identical [LICENSE](llmfs/LICENSE). Keep the copyright and license notice with copies or substantial portions of llmfs, including templates distributed separately. During setup, the skill preserves the complete notice in the target's `AGENTS.md`, identifying its scope as the llmfs-derived portions of that file and the accompanying `SYSTEM.md`.
+The installable package includes its own identical [LICENSE](llmfs/LICENSE). Keep the copyright and license notice with copies or substantial portions of llmfs, including templates distributed separately. During setup, the skill preserves the complete notice in a separate `LICENSE.llmfs`, identifying its scope as the llmfs-derived portions of `AGENTS.md` and `SYSTEM.md`. The notice is not embedded in agent instructions or required reading during ordinary work.
 
 Using llmfs does not change the ownership or licensing of the documents, code, or other content you manage with it.
