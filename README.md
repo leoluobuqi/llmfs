@@ -4,7 +4,7 @@
 
 **A protocol and bootstrap skill for an LLM-managed filesystem.**
 
-llmfs helps an AI agent organize, retrieve, and maintain local files using rules and context stored alongside the files themselves. Its operating protocol, navigation, and audit trail live in visible, ordinary files that people and future agents can read.
+llmfs helps an AI agent organize, retrieve, and maintain local files using rules and context stored alongside the files themselves. Its local protocol and navigation live in visible, ordinary files that people and future agents can read.
 
 The aim is to make a folder understandable across sessions: what belongs here, where to find it, how to change it safely, and which decisions should survive beyond a conversation.
 
@@ -12,7 +12,7 @@ The aim is to make a folder understandable across sessions: what belongs here, w
 
 Over time, a working folder accumulates documents, drafts, code, references, and decisions. A chat may explain their relationships today, but a later session may lack that context. Naming and organizing everything by hand also becomes ongoing work.
 
-llmfs gives the agent a persistent local protocol for that work. You describe what you need or put incoming material in `inbox/`; the agent uses visible files to organize content, maintain navigation, and record meaningful changes. The directory structure grows from actual content rather than a predefined taxonomy.
+llmfs gives the agent a persistent local protocol for that work. You describe what you need or put incoming material in `inbox/`; the agent uses visible files to organize content, maintain useful navigation, and preserve requested or necessary context. The directory structure grows from actual content rather than a predefined taxonomy.
 
 This can support personal research, writing, project materials, and other collections where files and their context need to remain useful over time. Content can include any file type, including PDFs, images, code, and databases. The protocol and organizational state remain readable without a hidden catalog, vector store, or chat history.
 
@@ -30,9 +30,7 @@ A newly initialized directory starts with these entry points:
 ├── SYSTEM.md
 ├── AGENTS.md
 ├── LICENSE.llmfs
-├── README.md
 ├── INDEX.md
-├── LOG.md
 └── inbox/
 ```
 
@@ -41,14 +39,12 @@ A newly initialized directory starts with these entry points:
 | `SYSTEM.md` | The local operating protocol: organization, retrieval, safety, and maintenance rules. |
 | `AGENTS.md` | Routes agents to the applicable `SYSTEM.md`. |
 | `LICENSE.llmfs` | Preserves the llmfs license separately from the agent instructions. |
-| `README.md` | Explains the directory's purpose, scope, and human use. |
-| `INDEX.md` | Routes readers to relevant areas and important entry points. |
-| `LOG.md` | Records meaningful operations in an append-only audit trail. |
+| `INDEX.md` | Gives brief purpose/scope and routes readers to relevant areas and important entry points. |
 | `inbox/` | Receives incoming files awaiting organization. |
 
 The bootstrap skill installs `SYSTEM.md`, `AGENTS.md`, and their separate `LICENSE.llmfs` notice. The remaining structure is created afterward by the agent following the installed protocol. Existing files are preserved during initialization; adopting a folder does not automatically reorganize its contents.
 
-During ordinary work, the agent starts retrieval from visible navigation, uses filename and text search, and reads relevant files. Reusable decisions and ongoing context belong in appropriate documents; `LOG.md` records operations and does not replace those documents. Human review and direct editing remain possible because the durable state is visible.
+The core organization is `SYSTEM.md`, `INDEX.md`, and `inbox/`; other organizational files and a general operation journal are not required. Discussion and retrieval are read-only. Indexes provide brief orientation and navigation, not progress, operation history, or verification evidence; ordinary content edits do not automatically trigger index updates. Requested durable content and essential continuation context belong in appropriate semantic documents. Human review and direct editing remain possible because the durable state is visible.
 
 ## Getting started
 
@@ -74,7 +70,7 @@ Work with the agent in the managed directory. Ensure it reads the applicable `SY
 
 Examples of everyday requests:
 
-- **Organize incoming material:** “Process the files in inbox, place them in appropriate areas, and update navigation and the operation log.”
+- **Organize incoming material:** “Process the files in inbox, place them in appropriate areas, and update navigation only where routes change.”
 - **Retrieve prior work:** “Find our notes about the launch plan and show the relevant file paths.”
 - **Preserve a decision:** “Save the decision we just made in the project notes, with enough context for a future session.”
 - **Maintain a collection:** “Review this area's navigation for stale links and suggest improvements before moving existing files.”
@@ -127,18 +123,18 @@ Updating your installed skill package does not automatically update managed dire
 
 Open the managed directory and paste this request. If it is not the current directory, replace “the current directory” with its exact path:
 
-> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs in update-protocol mode for the current directory. First read the installed SYSTEM.md, compare it with the packaged template, and report the versions, differences, and any local customizations. Ask for my approval before making changes. After approval, update the protocol entry points and license notice as needed, preserve unrelated content, and follow the updated SYSTEM.md for verification, logging, and local commits.
+> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs in update-protocol mode for the current directory. First read the installed SYSTEM.md, compare it with the packaged template, and report the versions, differences, and any local customizations. Ask for my approval before making changes. After approval, update the protocol entry points and license notice as needed, preserve unrelated content, and follow the updated SYSTEM.md for verification and local commits.
 
 Review the proposed changes before approving; local customizations should not be silently discarded. This updates `SYSTEM.md`, related `AGENTS.md` routing, and `LICENSE.llmfs` as needed—not the directory's content or existing links. If remote retrieval is unavailable, provide the complete updated `llmfs/` package locally and use its `SKILL.md` instead.
 
-Current package: **0.2.10**. Current released protocol: **System Protocol v10 (2026-10-31)**. See the [protocol version index](protocol/INDEX.md) for release history.
+Current package: **0.2.11**. Current released protocol: **System Protocol v11 (2026-11-11)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
 ## Boundaries and limitations
 
 - **Agent compliance is required.** llmfs supplies written instructions, not a background service or enforcement engine. It does not guarantee that an agent will discover or correctly follow every rule.
 - **A protocol is not a security boundary.** It cannot provide OS isolation, protect credentials from arbitrary processes, or replace filesystem permissions and other technical safeguards.
 - **File access is not universal content understanding.** Reading PDFs, images, or other formats may require additional tools. Agents should distinguish inspected content from filename-based guesses.
-- **Git supports recovery.** It does not replace visible documentation or provide an automatic off-machine backup. Under the current protocol, verified and logged file-changing tasks in a Git-managed root require a local task-level commit; pushing requires an explicit request.
+- **Git supports recovery.** It does not replace visible documentation or provide an automatic off-machine backup. Under the current protocol, completed and verified file-changing tasks in a Git-managed root require a local task-level commit unless the user or repository conventions direct otherwise. Commits include only authorized changes and preserve unrelated edits and staging state; pushing requires an explicit request.
 - **Portability has limits.** Ordinary files make the state inspectable across tools, but operational compatibility across agents has not been established. Validate the workflow with your chosen agent.
 
 ## Repository and maintenance
@@ -162,7 +158,7 @@ llmfs/
 │       └── SYSTEM.md       # Current released install template
 └── protocol/               # Development and release history
     ├── INDEX.md
-    ├── SYSTEM.v0.md … SYSTEM.v10.md
+    ├── SYSTEM.v0.md … SYSTEM.v11.md
     └── SYSTEM.next.md      # Mutable draft; not an install template
 ```
 

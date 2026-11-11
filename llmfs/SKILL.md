@@ -1,7 +1,7 @@
 ---
 name: llmfs
 description: Use when a user asks to initialize, adopt, check, or update a directory as an LLM-managed self-describing filesystem. Install or update SYSTEM.md, AGENTS.md, and their license notice, then hand off to the target SYSTEM.md.
-version: 0.2.10
+version: 0.2.11
 ---
 
 # llmfs
@@ -21,7 +21,7 @@ This skill is only for the bootstrap layer. It installs local protocol entry poi
 
 It installs, updates, or checks two local protocol entry points and a separate license notice:
 
-A self-describing filesystem may contain arbitrary file types, but its durable protocol, organization, routing, and retrieval aids must be visible ordinary files such as `SYSTEM.md`, `README.md`, `INDEX.md`, and `LOG.md`, not hidden databases, vector stores, embedding caches, or RAG indexes.
+A self-describing filesystem may contain arbitrary file types, but its durable protocol, organization, routing, and retrieval aids must be visible ordinary files such as `SYSTEM.md`, `INDEX.md`, and semantic documents, not hidden databases, vector stores, embedding caches, or RAG indexes.
 
 ```text
 <target>/
@@ -30,7 +30,7 @@ A self-describing filesystem may contain arbitrary file types, but its durable p
 └── LICENSE.llmfs
 ```
 
-It does not create `README.md`, `INDEX.md`, `LOG.md`, `inbox/`, or any other filesystem structure. Those are created later by the target directory's `SYSTEM.md` after handoff.
+It does not create `INDEX.md`, `inbox/`, or other organizational content. After handoff, the target directory's `SYSTEM.md` determines which missing structure to create.
 
 ## Authority Boundary
 
@@ -113,7 +113,7 @@ This mode updates only the bootstrap protocol entry points and their license not
 - `AGENTS.md`
 - `LICENSE.llmfs`
 
-It does not reorganize content, migrate indexes, rewrite logs, or change other filesystem structure. Those actions belong to the target directory's `SYSTEM.md` after handoff.
+It does not reorganize content, migrate indexes, or change other filesystem structure. Such work requires separate authorization under the target directory's `SYSTEM.md`.
 
 Use only templates packaged with this installed skill:
 
@@ -132,7 +132,7 @@ Workflow:
 8. Ensure `AGENTS.md` still routes to `SYSTEM.md` and does not override it; patch only the minimal router semantics when needed and preserve the MIT license as described above.
 9. Stop using this skill as the operating authority.
 10. Read the updated target `SYSTEM.md`.
-11. Follow the updated target `SYSTEM.md` for logging, verification, and git commit policy.
+11. Follow the updated target `SYSTEM.md` for verification and git commit policy.
 
 Do not refer to development-only release archives or drafts outside the installed skill package during normal use. The installable package is self-contained: `SKILL.md`, `LICENSE`, and its `templates/` files.
 
