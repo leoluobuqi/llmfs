@@ -40,12 +40,12 @@ Humans provide external files through `inbox/` and request work naturally; do no
 
 Choose the lightest mode meeting the request:
 
-- **Discussion:** answer directly; no file writes or git checkpoints.
+- **Discussion:** answer directly; no file writes or git checkpoints. When a confirmed, consequential conclusion is not already captured in known task materials, briefly offer once to preserve it in a suitable semantic document.
 - **Retrieval:** remain read-only; follow §5 and give concrete paths.
 - **File creation/update:** when preservation is requested or an authorized file task needs durable content, write under §7/§9, update indexes only under §6, verify, and follow §13.
 - **Maintenance/restructure:** only when requested or task-required; scope work under §16 and obtain required approval under §15 before execution.
 
-Potential reuse, corrections, or verification findings do not authorize incidental persistence or cleanup during Discussion/Retrieval. A request to save or maintain content changes the mode.
+Potential reuse, corrections, or verification findings do not authorize incidental persistence or cleanup during Discussion/Retrieval. A request to save or maintain content switches to a scoped file task; do not reconfirm preservation already explicitly authorized. Required safety approvals still apply (§15).
 
 Before reporting a file task complete, verify results and satisfy §13. Report changed paths, checks, and relevant limitations; for high-risk/broad work also report scope, risks, deferrals, and recovery boundaries. Do not save duplicate completion or verification reports by default.
 

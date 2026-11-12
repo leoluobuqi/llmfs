@@ -44,7 +44,11 @@ A newly initialized directory starts with these entry points:
 
 The bootstrap skill installs `SYSTEM.md`, `AGENTS.md`, and their separate `LICENSE.llmfs` notice. The remaining structure is created afterward by the agent following the installed protocol. Existing files are preserved during initialization; adopting a folder does not automatically reorganize its contents.
 
-The core organization is `SYSTEM.md`, `INDEX.md`, and `inbox/`; other organizational files and a general operation journal are not required. Discussion and retrieval are read-only. Indexes provide brief orientation and navigation, not progress, operation history, or verification evidence; ordinary content edits do not automatically trigger index updates. Requested durable content and essential continuation context belong in appropriate semantic documents. Human review and direct editing remain possible because the durable state is visible.
+The core organization is `SYSTEM.md`, `INDEX.md`, and `inbox/`; other organizational files and a general operation journal are not required.
+
+Discussion and retrieval remain read-only. During discussion, the agent should briefly offer once to preserve confirmed, consequential conclusions not already captured in known task materials, rather than write automatically. Explicit authorization starts a scoped file task without redundant preservation confirmation; required safety approvals still apply.
+
+Indexes provide brief orientation and navigation, not progress, operation history, or verification evidence; ordinary content edits do not automatically trigger index updates. Requested durable content and essential continuation context belong in appropriate semantic documents. Human review and direct editing remain possible because the durable state is visible.
 
 ## Getting started
 
@@ -127,7 +131,7 @@ Open the managed directory and paste this request. If it is not the current dire
 
 Review the proposed changes before approving; local customizations should not be silently discarded. This updates `SYSTEM.md`, related `AGENTS.md` routing, and `LICENSE.llmfs` as needed—not the directory's content or existing links. If remote retrieval is unavailable, provide the complete updated `llmfs/` package locally and use its `SKILL.md` instead.
 
-Current package: **0.2.11**. Current released protocol: **System Protocol v11 (2026-11-11)**. See the [protocol version index](protocol/INDEX.md) for release history.
+Current package: **0.2.12**. Current released protocol: **System Protocol v12 (2026-11-12)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
 ## Boundaries and limitations
 
@@ -158,7 +162,7 @@ llmfs/
 │       └── SYSTEM.md       # Current released install template
 └── protocol/               # Development and release history
     ├── INDEX.md
-    ├── SYSTEM.v0.md … SYSTEM.v11.md
+    ├── SYSTEM.v0.md … SYSTEM.v12.md
     └── SYSTEM.next.md      # Mutable draft; not an install template
 ```
 
