@@ -62,7 +62,7 @@ Open the directory you want to manage in your agent, or give it the exact target
 
 Paste this request into the agent. If you have not opened the target directory, replace “the current directory” with its exact path:
 
-> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs to initialize the current directory. Preserve existing content and ask before replacing protocol files. Follow the installed SYSTEM.md to complete setup.
+> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs to initialize the current directory.
 
 Review the target before approving setup. The skill asks before initializing Git and requires explicit approval before replacing an existing `SYSTEM.md` or establishing a nested protocol boundary inside an already managed directory.
 
@@ -127,7 +127,7 @@ Updating your installed skill package does not automatically update managed dire
 
 Open the managed directory and paste this request. If it is not the current directory, replace “the current directory” with its exact path:
 
-> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs in update-protocol mode for the current directory. First read the installed SYSTEM.md, compare it with the packaged template, and report the versions, differences, and any local customizations. Ask for my approval before making changes. After approval, update the protocol entry points and license notice as needed, preserve unrelated content, and follow the updated SYSTEM.md for verification and local commits.
+> Use the llmfs skill at https://github.com/leoluobuqi/llmfs/tree/main/llmfs in update-protocol mode for the current directory.
 
 Review the proposed changes before approving; local customizations should not be silently discarded. This updates `SYSTEM.md`, related `AGENTS.md` routing, and `LICENSE.llmfs` as needed—not the directory's content or existing links. If remote retrieval is unavailable, provide the complete updated `llmfs/` package locally and use its `SKILL.md` instead.
 

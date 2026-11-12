@@ -62,7 +62,7 @@ llmfs 为 Agent 提供持久保存在本地的操作协议。你可以直接描�
 
 将下面的请求粘贴给 Agent。如果尚未打开目标目录，请将“当前目录”替换为准确路径：
 
-> 使用 https://github.com/leoluobuqi/llmfs/tree/main/llmfs 中的 llmfs skill 初始化当前目录。保留已有内容，替换协议文件前先征求确认。随后按照安装好的 SYSTEM.md 完成初始化。
+> 使用 https://github.com/leoluobuqi/llmfs/tree/main/llmfs 中的 llmfs skill 初始化当前目录。
 
 确认初始化前，请核对目标目录。skill 会在初始化 Git 前询问；替换已有 `SYSTEM.md`，或在已经受管的目录中建立嵌套协议边界，也需要明确批准。
 
@@ -127,7 +127,7 @@ skill 支持四种模式：
 
 打开受管目录并粘贴下面的请求。如果它不是当前目录，请将“当前目录”替换为准确路径：
 
-> 使用 https://github.com/leoluobuqi/llmfs/tree/main/llmfs 中的 llmfs skill，以 update-protocol 模式更新当前目录。先读取已安装的 SYSTEM.md，与包内模板比较，报告版本、差异及本地定制内容。修改前先征求我的批准。批准后按需更新协议入口和许可声明，保留无关内容，并按照更新后的 SYSTEM.md 完成验证和本地提交。
+> 使用 https://github.com/leoluobuqi/llmfs/tree/main/llmfs 中的 llmfs skill，以 update-protocol 模式更新当前目录。
 
 批准前请审阅拟议变更，不应静默丢弃本地定制内容。更新范围是 `SYSTEM.md`、相关的 `AGENTS.md` 引导规则和 `LICENSE.llmfs`，不包括目录内容或已有链接。如果无法获取远程文件，可以在本地提供完整的新版 `llmfs/` 包，改用其中的 `SKILL.md`。
 
