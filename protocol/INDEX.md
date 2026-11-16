@@ -6,7 +6,7 @@ There is intentionally no `SYSTEM.md` in this directory. A managed filesystem is
 
 ## Current released version
 
-- Latest released: [SYSTEM.v12.md](SYSTEM.v12.md)
+- Latest released: [SYSTEM.v13.md](SYSTEM.v13.md)
 - Current install template: [SYSTEM.md](../llmfs/templates/SYSTEM.md)
 - Draft for next release: [SYSTEM.next.md](SYSTEM.next.md)
 
@@ -61,10 +61,11 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 | v10 | [SYSTEM.v10.md](SYSTEM.v10.md) | 2026-10-31 | Replaced wikilinks with standard Markdown links, document-relative local targets, actual extensions, necessary filename encoding, and affected-link verification after moves/renames; aligned §§5/9/17. |
 | v11 | [SYSTEM.v11.md](SYSTEM.v11.md) | 2026-11-11 | Reduced fixed organization to SYSTEM/INDEX/inbox; removed mandatory journaling and the external-skill-package policy; tightened index, persistence, Git staging, and credential-output boundaries. |
 | v12 | [SYSTEM.v12.md](SYSTEM.v12.md) | 2026-11-12 | Added one-time preservation offers for confirmed, consequential discussion conclusions absent from known task materials; retained explicit write authorization and safety approvals without redundant preservation confirmation. |
+| v13 | [SYSTEM.v13.md](SYSTEM.v13.md) | 2026-11-16 | Clarified interrupted-task change attribution and commit closeout, including resumption without new edits, unrelated staging preservation, and unclear-ownership and read-only boundaries. |
 
 ## Draft
 
-- [SYSTEM.next.md](SYSTEM.next.md) — mutable next-cycle draft following the v12 release, adding interrupted-task change attribution and commit closeout rules in §13. Future changes require a new candidate validation and independent freeze review cycle; they must not modify released v12. Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
+- [SYSTEM.next.md](SYSTEM.next.md) — mutable next-cycle draft following the v13 release, with the same body as [SYSTEM.v13.md](SYSTEM.v13.md) except for the draft heading. Future changes require a new candidate validation and independent freeze review cycle; they must not modify released v13. Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
 
 ## Release process
 

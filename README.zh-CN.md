@@ -131,7 +131,7 @@ skill 支持四种模式：
 
 批准前请审阅拟议变更，不应静默丢弃本地定制内容。更新范围是 `SYSTEM.md`、相关的 `AGENTS.md` 引导规则和 `LICENSE.llmfs`，不包括目录内容或已有链接。如果无法获取远程文件，可以在本地提供完整的新版 `llmfs/` 包，改用其中的 `SKILL.md`。
 
-当前 package 版本：**0.2.12**。当前已发布协议：**System Protocol v12（2026-11-12）**。发布历史见[协议版本索引](protocol/INDEX.md)。
+当前 package 版本：**0.2.13**。当前已发布协议：**System Protocol v13（2026-11-16）**。发布历史见[协议版本索引](protocol/INDEX.md)。
 
 ## 边界与限制
 
@@ -162,7 +162,7 @@ llmfs/
 │       └── SYSTEM.md       # 当前已发布版本的安装模板
 └── protocol/               # 开发草案与发布历史
     ├── INDEX.md
-    ├── SYSTEM.v0.md … SYSTEM.v12.md
+    ├── SYSTEM.v0.md … SYSTEM.v13.md
     └── SYSTEM.next.md      # 可修改的草案，不用于正常安装
 ```
 

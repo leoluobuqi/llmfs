@@ -131,7 +131,7 @@ Open the managed directory and paste this request. If it is not the current dire
 
 Review the proposed changes before approving; local customizations should not be silently discarded. This updates `SYSTEM.md`, related `AGENTS.md` routing, and `LICENSE.llmfs` as needed—not the directory's content or existing links. If remote retrieval is unavailable, provide the complete updated `llmfs/` package locally and use its `SKILL.md` instead.
 
-Current package: **0.2.12**. Current released protocol: **System Protocol v12 (2026-11-12)**. See the [protocol version index](protocol/INDEX.md) for release history.
+Current package: **0.2.13**. Current released protocol: **System Protocol v13 (2026-11-16)**. See the [protocol version index](protocol/INDEX.md) for release history.
 
 ## Boundaries and limitations
 
@@ -162,7 +162,7 @@ llmfs/
 │       └── SYSTEM.md       # Current released install template
 └── protocol/               # Development and release history
     ├── INDEX.md
-    ├── SYSTEM.v0.md … SYSTEM.v12.md
+    ├── SYSTEM.v0.md … SYSTEM.v13.md
     └── SYSTEM.next.md      # Mutable draft; not an install template
 ```
 
