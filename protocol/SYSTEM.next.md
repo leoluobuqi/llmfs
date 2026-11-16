@@ -153,7 +153,10 @@ Git is optional; the visible working tree must suffice to understand the filesys
 
 When the managed root is a Git repository, each completed and verified file-changing task must produce one local task-level commit with a semantic message, unless the human or applicable visible repository conventions explicitly direct otherwise. No additional confirmation is required for this local commit. Before the final response, verify success and report the commit hash, or explain why no commit was made.
 
-Stage and commit only task-authorized changes; preserve all other uncommitted changes and their staged/unstaged state. Avoid `git add -A` or broad staging unless the whole working tree belongs to the task.
+At the start or resumption of an authorized file task in a Git-managed root, inspect staged, unstaged, and untracked changes. Determine task ownership from the human request, available task context, and relevant diffs. Verify and include outstanding changes from the same interrupted task in its completion commit, even if resumption adds no edits. Preserve changes of unclear ownership and ask before including them. Discussion or Retrieval alone does not authorize committing leftovers.
+
+Stage and commit only task-authorized changes; preserve unrelated changes and their staged/unstaged state, even within the same files. Avoid `git add -A` or broad staging unless the whole working tree belongs to the task. Before reporting completion, check commit contents and remaining working-tree/index changes for omissions. Report any uncommitted task changes and reasons; do not claim full completion while required verification or committing remains unresolved.
+
 Do not push, branch, tag, merge, or rewrite history unless explicitly asked.
 
 Coding projects and nested Git repositories are self-contained semantic areas. Place them by meaning, source, use, ownership, or topic, not a default generic `projects/` directory; preserve internals unless the human requests refactoring.

@@ -64,7 +64,7 @@ Do not add extra metadata headers such as `Version:`, `Status:`, `Released:`, or
 
 ## Draft
 
-- [SYSTEM.next.md](SYSTEM.next.md) — mutable next-cycle draft following the v12 release, with the same body as [SYSTEM.v12.md](SYSTEM.v12.md) except for the draft heading. Future changes require a new candidate validation and independent freeze review cycle; they must not modify released v12. Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
+- [SYSTEM.next.md](SYSTEM.next.md) — mutable next-cycle draft following the v12 release, adding interrupted-task change attribution and commit closeout rules in §13. Future changes require a new candidate validation and independent freeze review cycle; they must not modify released v12. Operational credential validation remains not performed, a real pilot remains optional post-release validation, and operational cross-Agent compatibility remains not established.
 
 ## Release process
 
